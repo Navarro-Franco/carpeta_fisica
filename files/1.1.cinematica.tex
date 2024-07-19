@@ -1,0 +1,83 @@
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+\chapter{Cinemática del punto}
+
+\intro{
+    Muchas veces nos interesa dar una descripcion del movimiento de un objeto
+sin entrar en las caracteristicas de este. Un ejemplo, a muy grandes rasgos, es
+el GPS de nuestro teléfono. Un GPS sencillo no puede distinguir si esta
+describiendo el movimiento de una persona corriendo, de un auto o de tren, e
+incluso no le interesa si las ruedas son de cierto material o patinan respecto
+del piso. Por eso, podemos reducir el cuerpo que estamos tratando de describir
+a un solo punto y ver como este se traslada en funcion del tiempo.
+}
+
+%\section{Vectores}
+%A mi me resulta muy necesario primero empezar con el tema de vectores, mas que 
+%nada su forma de escribir. Estamos de acuerdo que lo presente en la figura
+%es propiamente un vector. Se puede ver que tiene un sentido, una magnitud y
+
+\section{Movimiento Rectilíneo}
+Para el estudio del movimiento de un cuerpo puntual uno hace la siguiente
+preposicion y es que este adopta una sola posicion en cada instante. Con esta
+preposicion estamos diciendo que el movimiento de nuestro cuerpo va a tener las
+caracteristicas de una funcion pero lo que no se dijo es de que va a depender 
+la funcion posicion.
+
+Al menos yo, cuando leo la palabra cinematica me imagino una serie de fotos
+sacadas consecutivamente en un intervalo de tiempo corto que si uno las pudiera
+unir, veria lo que muchos conocemos como un video. Y en si la funcion posicion
+eso. Son una serie de punto en un determinado tiempo que al unirnos nos dicen
+como un objeto mueve durante un determinado intervalo de tiempo.
+
+Ahora, la funcion de tiempo $\va{r}(t)$ puede tener cualquier aspecto de funcion
+que uno se imagine (poner imagenes ) y no solo eso sino que en los movimientos
+que uno quiera, por ejemplo uno podria tener una
+$\va{r}(t) = x(t) \cdot \hat{x} + y(t) \cdot \hat{y} + z(t) \cdot \hat{z} $
+donde la posicion varia en las tres dimensiones a la vez.
+
+\thmp{Velocidad y movimiento en un MRU}{
+\begin{equation}
+    v(t) = cte
+\end{equation}
+\begin{equation}
+    x(t) = x_0 + v \cdot (t - t_0)
+\end{equation}
+}{
+    Se parte de la base que la velocidad es constante para todo tiempo y que
+    la velocidad es la derivada de la distancia respecto del tiempo.
+\begin{equation}
+    v = \frac{\partial x}{\partial t}
+\end{equation}
+    Se puede pasar el diferencia al otro lado e integrar en un intervalo de
+    tiempo determinado.
+\begin{equation}
+    v \cdot \partial t = \partial x \Longrightarrow \int _{t_0}^t v \cdot \partial t = \int _{x_0}^{x(t)} \partial x \Longrightarrow v \cdot (t - t_0) = x(t) - x_0
+\end{equation}
+}
+
+\thmp{Velocidad y movimiento en un MRUV}{
+\begin{equation}
+    a = cte
+\end{equation}
+\begin{equation}
+    v(t) = v_0 + a \cdot (t - t_0)
+\end{equation}
+\begin{equation}
+    x(t) = x_0 + v_0 \cdot (t - t_0) + \frac{a}{2} \cdot (t - t_0)^2
+\end{equation}
+}{
+    Se parte de la base que la velocidad es constante para todo tiempo y que
+    la velocidad es la derivada de la distancia respecto del tiempo.
+\begin{equation}
+    v = \frac{\partial x}{\partial t}
+\end{equation}
+    Se puede pasar el diferencia al otro lado e integrar en un intervalo de
+    tiempo determinado.
+\begin{equation}
+    v \cdot \partial t = \partial x \Longrightarrow \int _{t_0}^t v \cdot \partial t = \int _{x_0}^{x(t)} \partial x \Longrightarrow v(t) \cdot (t - t_0) = x(t) - x_0
+\end{equation}
+}
+
+\end{document}

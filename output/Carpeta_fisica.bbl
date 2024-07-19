@@ -1,0 +1,52 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{Roederer}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=253b1311f2d36d31d75b47875f11abf3}{%
+           family={Roederer},
+           familyi={R\bibinitperiod},
+           given={Juan\bibnamedelima G.},
+           giveni={J\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Eudeba}%
+      }
+      \strng{namehash}{253b1311f2d36d31d75b47875f11abf3}
+      \strng{fullhash}{253b1311f2d36d31d75b47875f11abf3}
+      \strng{bibnamehash}{253b1311f2d36d31d75b47875f11abf3}
+      \strng{authorbibnamehash}{253b1311f2d36d31d75b47875f11abf3}
+      \strng{authornamehash}{253b1311f2d36d31d75b47875f11abf3}
+      \strng{authorfullhash}{253b1311f2d36d31d75b47875f11abf3}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{5}
+      \field{title}{Mecánica Elemental}
+      \field{year}{2017}
+      \true{nocite}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

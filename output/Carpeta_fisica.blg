@@ -1,0 +1,14 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'output/Carpeta_fisica.blg'
+[86] biber:340> INFO - === Thu Jul 18, 2024, 18:18:23
+[100] Biber.pm:418> INFO - Reading 'output/Carpeta_fisica.bcf'
+[171] Biber.pm:969> INFO - Using all citekeys in bib section 0
+[185] Biber.pm:4383> INFO - Processing section 0
+[196] Biber.pm:4574> INFO - Looking for bibtex file 'References.bib' for section 0
+[196] bibtex.pm:1713> INFO - LaTeX decoding ...
+[199] bibtex.pm:1518> INFO - Found BibTeX data source 'References.bib'
+[239] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[239] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[239] Biber.pm:4203> INFO - Sorting list 'ynt/global//global/global' of type 'entry' with template 'ynt' and locale 'es-ES'
+[241] bbl.pm:654> INFO - Writing 'output/Carpeta_fisica.bbl' with encoding 'UTF-8'
+[242] bbl.pm:757> INFO - Output to output/Carpeta_fisica.bbl
