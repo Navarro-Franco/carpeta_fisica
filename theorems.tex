@@ -80,6 +80,27 @@
 \definecolor{facscol}{HTML}{28a8a1} %For facts
 
 
+% ============================
+%   Ejemplos 
+% ============================
+\newtcbtheorem[number within=section]{myejemplos}{Ejemplo}
+{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=black,
+    colbacktitle=defscol!40!white,
+    colback=defscol!20!white,
+}{ejem}
+
+\NewDocumentCommand{\ejem}{m+m}{
+    \begin{myejemplos}{#1}{}
+        #2
+    \end{myejemplos}
+}
 
 % ============================
 % Definition
@@ -416,7 +437,7 @@
 
 \NewDocumentCommand{\exm}{m+m}{
     \begin{myexample}
-	{\noindent{\it \textbf{Example : #1 }}}\\ 
+	{\noindent{\it \textbf{Ejemplo: #1 }}}\\ 
         #2
     \end{myexample}
 }

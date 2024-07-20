@@ -22,10 +22,49 @@ integrales de la ecuacion de Newton.
 
         % Esto representa una particula
         \filldraw[black] (0,0) circle (2pt) node[anchor=west]{$m$};
+        
+        % Vector velocidad
+        \draw[thick, ->] (0, 0.3) -- (1, 0.3) node[anchor=west]{$\vec{v}$};
 
     \end{tikzpicture}
-    \caption{Una particula libre que tiene masa y velocidad.}
+    \caption{Una particula simple y libre.}
     \label{fg:unaparticula}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+
+        % Particula 1
+        \filldraw[black] (1,1) circle (2pt) node[below]{$m_1$};
+
+        % Fuerza 12
+        \draw[thick, ->] (1,1) -- (1.5, 1.5) node[below, right]{$\vec{F}_{12}$};
+
+        % Fuerza 13
+        \draw[thick, ->] (1,1) -- (0.5, 1.5) node[below, left]{$\vec{F}_{13}$};
+
+        % Particula 2
+        \filldraw[black] (3,3) circle (2pt) node[right]{$m_2$};
+
+        % Fuerza 21
+        \draw[thick, ->] (3,3) -- (2.5, 2.5) node[below, right]{$\vec{F}_{21}$};
+
+        % Fuerza 23
+        \draw[thick, ->] (3,3) -- (2.5, 3) node[below, left]{$\vec{F}_{23}$};
+
+        % Particula 3
+        \filldraw[black] (-1, 3) circle (2pt) node[left]{$m_3$};
+
+        % Fuerza 32
+        \draw[thick, ->] (-1, 3) -- (-0.5, 3) node[below, right]{$\vec{F}_{32}$};
+
+        % Fuerza 31
+        \draw[thick, ->] (-1, 3) -- (-0.5, 2.5) node[below, left]{$\vec{F}_{31}$};
+
+    \end{tikzpicture}
+    \caption{Sistema de 3 particulas que interactuan entre si.}
+    \label{fg:tresparticulas}
 \end{figure}
 
 \end{minipage}
@@ -35,9 +74,10 @@ integrales de la ecuacion de Newton.
 \section{Impulsó lineal}
 
 Supongamos que nosotros querremos describir una particula como en la 
-figura (). Si, es solo una particula que pareciera ser que no se ve afectada
-por nada. Si nosotros aplicamos lo que vimos en la primera parte de la materia
-tendriamos que la ecuacion de Newton para la particual es la siguiente
+figura \ref{fg:unaparticula}. Si, es solo una particula que pareciera ser
+que no se ve afectada por nada. Si nosotros aplicamos lo que vimos en la
+primera parte de la materia tendriamos que la ecuacion de Newton para la
+partícula es la siguiente
 
 \begin{equation}
     m \cdot \vec{a} = \sum \vec{F} \ .
@@ -81,10 +121,10 @@ propiamente un vector.
 Este mismo analisis del impulso lineal no se limita al caso de una particula,
 sino que se puede realizar para un sistemas de $N$ partículas que interactuan
 entre si.
-Veamos el caso que se muestra en la figura (), podemos ver un sistema de 3
-particulas que interactuan entre si de tal modo que ninguna de ellas mueve a la 
-otra. El primer paso es poner las ecuaciones de Newton para cada una de las
-particulas.
+Veamos el caso que se muestra en la figura \ref{fg:tresparticulas}, podemos ver
+un sistema de 3 particulas que interactuan entre si de tal modo que ninguna de
+ellas mueve a la otra. El primer paso es poner las ecuaciones de Newton para
+cada una de las particulas.
 
 Para la particula 1 tenemos
 \begin{equation*}
@@ -119,7 +159,7 @@ Antes de hacer el truco de ver que la aceleracion es la derivada de la
 velocidad respecto del tiempo, me gustaria hacer un comentario sobre las
 fuerzas. Mas que nada me intera los pares, por ejemplo la fuerza $\vec{F} _{12}$
 y $\vec{F} _{21} $. Se puede ver que ambas tiene direcciones opuestas por la
-figura () pero ademas sabemos que estas son de igual modulo porque es una
+figura \ref{fg:tresparticulas} pero ademas sabemos que estas son de igual modulo porque es una
 fuerza de interaccion, por lo que la suma entre $\vec{F} _{12}$ y $\vec{F} _{21}$.
 da cero. Y esto mismo podriamos hacer para cada par de fuerza interna asi que
 voy a reescribir la ecuacion anterior con los pares entre parentesis.
@@ -174,9 +214,10 @@ si calculamos el $\vec{P}$ para un $t_0$ no va a ser igual a un $\vec{P}$ para
 un $t$ futuro o posterior. Pero lo que si podemos calcular es la diferencia
 del impulso lineal.
 
-\begin{equation*}
+\begin{equation}
     \frac{\partial \vec{P}}{\partial t} = m_1 \cdot \vec{g} + m_2 \cdot \vec{g} + m_3 \cdot \vec{g}
-\end{equation*}
+    \label{eq:deltaP}
+\end{equation}
 \begin{equation*}
     \Downarrow
 \end{equation*}
@@ -211,15 +252,17 @@ En resumen, el impulso lineal se puede calcular de la siguiente manera
 
 \end{minipage}
 \newpage
+% Columna de las imagenes
 \begin{minipage}[t]{0.3\textwidth}
 \end{minipage}
 \hfill
+% Columna del text
 \begin{minipage}[t]{0.6\textwidth}
 
 \section{Centro de masa y Velocidad centro de masa}
 
-Voy a seguir con el ejemplo del sistema de 3 masas de la figura () y voy a
-partir de la ecuacion \ref{eq:sistP} para seguir desarrollando un poco mas.
+Voy a seguir con el ejemplo del sistema de 3 masas de la figura \ref{fg:tresparticulas}
+y voy a partir de la ecuacion \ref{eq:sistP} para seguir desarrollando un poco mas.
 
 El paso siguiente pensar la velocidad como la derivada de la posicion respecto
 del tiempo. Por lo que obtenes que 
@@ -272,6 +315,30 @@ posicion al derivarlo respecto del tiempo se obtiene la velocidad.
 \end{minipage}
 \newpage
 \begin{minipage}[t]{0.3\textwidth}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+
+% Particula 1
+\draw[black] (0,0) circle (5pt) node[right]{$m_1$};
+
+% Velocidad de 1
+\draw[thick, ->] (0, 0.3) -- (1, 0.3) node[right]{$\vec{v}_1$};
+
+% Particula 2
+\draw[black] (2,0) circle (5pt) node[right]{$m_2$};
+
+% Piso
+\draw[black] (-1, -0.2) -- (3, -0.2);
+
+% Sist ref
+\draw[black, ->, thick] (-1, 1) -- (3, 1) node[right]{$\hat{x}$};
+
+\end{tikzpicture}
+\caption{Un choque plastico perfecto.}
+\label{fg:choque}
+\end{figure}
+
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.6\textwidth}
@@ -295,6 +362,222 @@ es la siguiente
 \begin{equation*}
     \vec{v} _{CM} = \frac{\sum _i m_i \cdot \vec{v} _i}{\sum _i m_i}
 \end{equation*}
-\end{minipage}
 
+\ejem{Choque plastico perfecto}{
+Supongamos el escanario de dos pelotitas de masa $m$ como se puede ver
+en la figura \ref{fg:choque} donde la primera pelota tiene una velocida $\vec{v}_1$ y la
+segunda pelota tiene una velocidad $\vec{v} _2 = 0$. En un tiempo $t$ estas
+chochan y se quedan pegadas. Que se puede decir del impulso lineal? Este se
+conserva o no? Y las velocidades despues del choque?
+}
+
+De primeras podemos ver que al estar apoyada en el piso la normal de cada
+masa compensa el peso. Por lo si planteamos la conservacion del impulso
+lineal
+
+\begin{equation*}
+    \frac{\partial}{\partial t} \left( \vec{P} _1 + \vec{P} _2 \right) = \sum F^{EXT} = 0 \ .
+\end{equation*}
+
+Obviamente que la justicacion correcta es hacer las ecuaciones de Newton para 
+cada particular y usar como vinculo que en $\hat{y}$, o $\hat{z}$ dependiendo
+del sistema que uno tenga, no hay aceleracion.
+
+Pero algo que si podemos ver es que el impulso lineal se conserva porque las
+fuerzas extenernas se compensan. Entonces podriamos calcular el impulso en el
+momento inicial, momento que tenemos los datos, y despues igualarlo al impulso
+en el momento despues del choque ya que estos son lo mismo.
+
+Impulso lineal en el instante inicial
+\begin{equation*}
+    \vec{P} _I = m_1 \cdot \vec{v} _1 + m_2 \cdot \vec{v} _2 = m_1 \cdot \vec{v} _1 
+\end{equation*}
+
+\end{minipage}
+\newpage
+\begin{minipage}[t]{0.3\textwidth}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+
+% Pelota
+\draw[black] (0,1) circle (5pt);
+
+% Peso
+\draw[black, ->, thick] (0, 1) -- (0, 0.5) node[below]{$m \cdot \vec{g}$};
+
+% Velocidad
+\draw[black, ->, thick] (1, 1) -- (1, 0.5) node[right]{$\vec{v}$};
+
+% Piso
+\draw[black] (-1, -0.2) -- (3, -0.2);
+
+% Sist ref
+\draw[black, ->, thick] (-0.7, 0) -- (-0.7, 1) node[left]{$\hat{z}$};
+
+\end{tikzpicture}
+\caption{Una pelota cayendo.}
+\label{fg:deltaP}
+\end{figure}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.6\textwidth}
+
+Impulso lineal en el instante final
+\begin{equation*}
+    \vec{P} _F = (m_1 + m_2) \cdot \vec{v} _{1-2}
+\end{equation*}
+
+Ahora igualamos los impulsos
+\begin{equation*}
+ \vec{P} _I = \vec{P} _F
+\end{equation*}
+\begin{equation*}
+    \Downarrow
+\end{equation*}
+\begin{equation*}
+    m_1 \cdot \vec{v} _1 = (m_1 + m_2) \cdot \vec{v} _{1-2} \ .
+\end{equation*}
+
+Ahora usemos el dato de que tienen masas iguales
+
+\begin{equation*}
+    m \cdot \vec{v} _1 = (m + m) \cdot \vec{v} _{1-2}
+\end{equation*}
+\begin{equation*}
+    \Downarrow
+\end{equation*}
+\begin{equation*}
+    \vec{v} _{1-2} = \frac{\vec{v} _1}{2}
+\end{equation*}
+vemos que la velocidad final es la mitad de la velocidad incial de pelotita 1.
+
+\ejem{Otro Ejemplo}{
+Ahora supongamos el caso de una pelota de masa $m = 0,2 kg$ como se puede ver
+en la figura \label{fg:deltaP} que cae con una velocidad $\vec{v} = 8 \frac{m}{s}$.
+Cuando llega al piso rebota y vuelve con el mismo $ |v| $. Ademas,
+supongamos que el contacto con el piso dura $10^{-3} s$. Que se puede decir
+del impulso lineal?
+}
+
+Calculemos primero el impulso lineal en el instante inicial con los datos que
+tenemos
+\begin{equation*}
+    \vec{P} _{I} = 0,2 kg \cdot 8 \frac{m}{s} \ ( - \hat{z} ) = - 1,6 kg \cdot \frac{m}{s} \ \hat{z} \ .
+\end{equation*}
+
+Ahora calculemos el impulso lineal pero en el instante donde vuelve. Vamos a
+decir que es el instante final de nuestro analisis
+\begin{equation*}
+    \vec{P} _{F} = 0,2 kg \cdot 8 \frac{m}{s} \ \hat{z} \ = 1,6 kg \cdot \frac{m}{s} \ \hat{z} \ .
+\end{equation*}
+
+Es bastante claro que en este caso el impulso lineal no se conserva. Vemos que
+para el instante inicial el impulso lineal es negativo pero en el instante
+final este es positivo.
+
+\end{minipage}
+\newpage
+\begin{minipage}[t]{0.3\textwidth}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.7]
+  \begin{axis}[
+    axis lines = middle,
+    axis y line*=left,
+    xlabel = $t$,
+    ylabel = {$F$},
+    domain=-4:4,
+    samples=100,
+    xtick=\empty,
+    ytick=\empty,
+    ymin=0,
+    ymax=0.5,
+    enlargelimits=false,
+    clip=false,
+    axis line style={thick}
+  ]
+    
+    % Fill the area under the curve
+    \addplot [
+      domain=-3:3,
+      samples=100,
+      fill=gray, 
+      fill opacity=0.7
+    ] {exp(-0.5*x^2)/sqrt(2*pi)} \closedcycle;
+
+    % Plot the Gaussian function
+    \addplot [
+      thick,
+      red,
+    ] {exp(-0.5*x^2)/sqrt(2*pi)};
+
+    \node at (axis cs:0,0.2) {$\Delta \bar{P}$};
+    \node at (axis cs:  -3, -0.02) {$t_I$};
+    \node at (axis cs:  3, -0.02) {$t_F$};
+      \node[red] at (axis cs:0, 0.35) {$\bar{F}$};
+  \end{axis}
+\end{tikzpicture}
+\caption{Grafico de delta $\vec{P}$.}
+\label{fg:graficoDeltaP}
+\end{figure}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.6\textwidth}
+
+Lo siguiente es preguntarnos cual es la diferencia que existe entre los impulsos
+A priori sabemos que ese cambio de velocidad se debe a la interaccion con el
+piso. Tratemos de escribir esto con las ecuaciones de Newton
+
+\begin{equation*}
+    m_p \cdot \vec{a}_p = \vec{F} ^{PISO} + m \cdot \vec{g}
+\end{equation*}
+
+Si aplicamos el mismo procedimiento que realice anteriormente en la ecuacion
+\ref{eq:deltaP}, llegamos a lo siguiente
+\begin{equation*}
+    \Delta P = \int _{t_I}^{t_F} \partial \vec{P} = \int _{t_I}^{t_F} \vec{F} ^{PISO} \ \partial t + \int _{t_I}^{t_F} m \cdot \vec{g} \ \partial t
+\end{equation*}
+los terminos de la izquierda ya los calculamos asi que vamos hablar sobre los
+terminos de la derecha. El termino que esta multiplicando la masa por la
+gravedad va a dar un resultado muy chico, osea que va a ser un par de decimales,
+porque la masa es muy chica y el intervalo de tiempo es de un milisegundo, por
+lo que para los siguientes calculos yo lo voy a despreciar. Por ultimo,
+$t_F$ lo podemos definir como $t_I + 1ms$ porque nos dice que el tiempo que
+esta en el piso.
+
+\begin{equation*}
+    \Delta \vec{P} = 1,6 kg \cdot \frac{m}{s} \ \hat{z} - \left( - 1,6 kg \cdot \frac{m}{s} \ \hat{z} \right) = \int _{t_I}^{t_F} \vec{F} ^{PISO} \ \partial t + (Algo \ chico)
+\end{equation*}
+\begin{equation*}
+    \Downarrow
+\end{equation*}
+\begin{equation*}
+    \Delta \vec{P} = 3,2 kg \cdot \frac{m}{s} \ \hat{z} = \int _{t_I}^{t_I + 1ms} \vec{F} ^{PISO} \ \partial t \ .
+\end{equation*}
+
+Una forma grafica de ver este resultado es el grafico \ref{fg:graficoDeltaP}
+donde se puede ver que el area debajo de la curva es el $\Delta \vec{P}$.
+Ademas, un comentario sobre la fuerza y es que si nosotros divimos el termino
+de la derecha por el intevalo de tiempo, obtenemos el valor de la fuerza
+promedio en ese tiempo
+\begin{equation*}
+    \frac{\int _{t_I}^{t_F} \vec{F} ^{PISO} \ \partial t}{t_F - t_I} = Valor \ promedio \ .
+\end{equation*}
+
+\end{minipage}
+\newpage
+% Columna de las imagenes
+\begin{minipage}[t]{0.3\textwidth}
+\end{minipage}
+\hfill
+% Columna del text
+\begin{minipage}[t]{0.6\textwidth}
+\section{Impulso Angular}
+nota del 17 de mayo y me gustaria llegar al 31 de mayo.
+\end{minipage}
 \end{document}
