@@ -23,7 +23,7 @@
 \RequirePackage[most]{tcolorbox}
 \tcbuselibrary{listings}
 \usetikzlibrary{shadows,shadows.blur,shapes.misc, positioning}
-
+\usepackage{svg}
 
 %--------------------------------------------------------------------------
 % 		WRITING PACKAGES & COMMANDS 
@@ -232,3 +232,21 @@ sorting=ynt,
 citestyle=authortitle
 ]{biblatex}
 \addbibresource{References.bib}
+
+
+% %--------------------------------------------------------------------------
+% %         Comandos
+% %--------------------------------------------------------------------------
+
+\newcommand{\npage}[2]{
+\newpage
+% Columna de las imagenes
+\begin{minipage}[t]{0.3\textwidth}
+    #1
+\end{minipage}
+\hfill
+% Columna del text
+\begin{minipage}[t]{0.6\textwidth}
+    #2
+\end{minipage}
+}

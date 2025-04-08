@@ -5,579 +5,768 @@
 
 \intro{
     Voy a tomar como inicio el mismo que menciono mi JTP, Pablo Gaztañaga,
-cuando empezo esta segunda parte. Si uno le tendria que resumir a un amigo
-que rindio en la primera parte, osea el primer parcia. Que le dirias? Cuando
-lo dijo hubo un silencio y es obvio si por clase eramos unos 20, con toda la
-furia, de los cuales casi menos de la mitad habiamos aprobado el primer
-parcial. Pero la respuesta que Pablo queria se menciono en una voz al fondo
-del aula. En esta segunda se basa en lo mismo que la primera y es la ecuacion
-de Newton. En muchos libros este tema se lo menciona como las primera
-integrales de la ecuacion de Newton.
+    cuando empezo esta segunda parte. Si uno le tendria que resumir a un amigo
+    que rindio en la primera parte, osea el primer parcia. Que le dirias? Cuando
+    lo dijo hubo un silencio y es obvio si por clase eramos unos 20, con toda la
+    furia, de los cuales casi menos de la mitad habiamos aprobado el primer
+    parcial. Pero la respuesta que Pablo queria se menciono en una voz al fondo
+    del aula. En esta segunda se basa en lo mismo que la primera y es la ecuacion
+    de Newton. En muchos libros este tema se lo menciona como las primera
+    integrales de la ecuacion de Newton.
+    }
+
+\npage{
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+
+            % Esto representa una particula
+            \filldraw[black] (0,0) circle (2pt) node[anchor=west]{$m$};
+
+            % Vector velocidad
+            \draw[thick, ->] (0, 0.3) -- (1, 0.3) node[anchor=west]{$\vec{v}$};
+
+        \end{tikzpicture}
+        \caption{Una particula simple y libre.}
+        \label{fg:unaparticula}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+
+            % Particula 1
+            \filldraw[black] (1,1) circle (2pt) node[below]{$m_1$};
+
+            % Fuerza 12
+            \draw[thick, ->] (1,1) -- (1.5, 1.5) node[below, right]{$\vec{F}_{12}$};
+
+            % Fuerza 13
+            \draw[thick, ->] (1,1) -- (0.5, 1.5) node[below, left]{$\vec{F}_{13}$};
+
+            % Particula 2
+            \filldraw[black] (3,3) circle (2pt) node[right]{$m_2$};
+
+            % Fuerza 21
+            \draw[thick, ->] (3,3) -- (2.5, 2.5) node[below, right]{$\vec{F}_{21}$};
+
+            % Fuerza 23
+            \draw[thick, ->] (3,3) -- (2.5, 3) node[below, left]{$\vec{F}_{23}$};
+
+            % Particula 3
+            \filldraw[black] (-1, 3) circle (2pt) node[left]{$m_3$};
+
+            % Fuerza 32
+            \draw[thick, ->] (-1, 3) -- (-0.5, 3) node[below, right]{$\vec{F}_{32}$};
+
+            % Fuerza 31
+            \draw[thick, ->] (-1, 3) -- (-0.5, 2.5) node[below, left]{$\vec{F}_{31}$};
+
+        \end{tikzpicture}
+        \caption{Sistema de 3 particulas que interactuan entre si.}
+        \label{fg:tresparticulas}
+    \end{figure}
+
+}
+{
+    \section{Impulsó lineal}
+
+    Supongamos que nosotros querremos describir una particula como en la 
+    figura \ref{fg:unaparticula}. Si, es solo una particula que pareciera ser
+    que no se ve afectada por nada. Si nosotros aplicamos lo que vimos en la
+    primera parte de la materia tendriamos que la ecuacion de Newton para la
+    partícula es la siguiente
+
+    \begin{equation}
+        m \cdot \vec{a} = \sum \vec{F} \ .
+        \label{eq:sumP}
+    \end{equation}
+
+    Pero ahora vamos hacer un truco, que en realidad se hace en la primera parte de 
+    la materia, y es mirar a la aceleración como la deriva de la velocidad respecto
+    del tiempo
+
+    \begin{equation}
+        \vec{a} = \frac{\partial \vec{v}}{\partial t} \ .
+    \end{equation}
+
+    Con esto podemos reemplazar en la ecuacion \ref{eq:sumP}. Ademas, una propiedad
+    de cuando uno deriva es que puede sacar las constantes que esten multiplicando
+    a la variable que estemos derivando y como para este caso la masa es una
+    constante voy hacer lo siguiente y es el paso inverso, meter la masa adentro de
+    la derivada.
+
+    \begin{equation}
+        m \cdot \frac{\partial \vec{v}}{\partial t} = \sum \vec{F}
+    \end{equation}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \frac{\partial}{\partial t} \left( m \cdot \vec{v} \right) = \sum \vec{F} \ .
+    \end{equation*}
+
+    La expresión que se encuentra dentro de los paréntesis es lo que en fisica se 
+    denomina como impulso lineal
+
+    \begin{equation}
+        \vec{P} = m \cdot \vec{v}
+        \label{eq:impLineal}
+    \end{equation}
+    como la velocidad $\vec{v}$ es un vector, el impulso lineal $\vec{P}$ es
+    propiamente un vector.
+
+    Este mismo analisis del impulso lineal no se limita al caso de una particula,
+    sino que se puede realizar para un sistemas de $N$ partículas que interactuan
+    entre si.
+    Veamos el caso que se muestra en la figura \ref{fg:tresparticulas}, podemos ver
+    un sistema de 3 particulas que interactuan entre si de tal modo que ninguna de
+    ellas mueve a la otra. El primer paso es poner las ecuaciones de Newton para
+    cada una de las particulas.
+
+    Para la particula 1 tenemos
+    \begin{equation*}
+        m_1 \cdot \vec{a} _1 = \vec{F} _{12} + \vec{F} _{13} \ .
+    \end{equation*}
+
 }
 
-\begin{minipage}[t]{0.3\textwidth}
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
+\npage{
+}
+{
+    Para la particula 2 tenemos
+    \begin{equation*}
+        m_2 \cdot \vec{a} _2 = \vec{F} _{21} + \vec{F} _{23} \ .
+    \end{equation*}
 
-        % Esto representa una particula
-        \filldraw[black] (0,0) circle (2pt) node[anchor=west]{$m$};
-        
-        % Vector velocidad
-        \draw[thick, ->] (0, 0.3) -- (1, 0.3) node[anchor=west]{$\vec{v}$};
+    Para la particula 3 tenemos
+    \begin{equation*}
+        m_3 \cdot \vec{a} _3 = \vec{F} _{31} + \vec{F} _{32} \ .
+    \end{equation*}
 
-    \end{tikzpicture}
-    \caption{Una particula simple y libre.}
-    \label{fg:unaparticula}
-\end{figure}
+    Ahora podriamos sumar las ecuaciones de Newton de todas las particulas,
+    obteniendo
 
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
+    \begin{equation*}
+        m_1 \cdot \vec{a} _1 + m_2 \cdot \vec{a} _2 + m_3 \cdot \vec{a} _3 = \vec{F} _{12} + \vec{F} _{13} + \vec{F} _{21} + \vec{F} _{23} + \vec{F} _{31} + \vec{F} _{32} \ .
+    \end{equation*}
 
-        % Particula 1
-        \filldraw[black] (1,1) circle (2pt) node[below]{$m_1$};
+    Antes de hacer el truco de ver que la aceleracion es la derivada de la
+    velocidad respecto del tiempo, me gustaria hacer un comentario sobre las
+    fuerzas. Mas que nada me intera los pares, por ejemplo la fuerza $\vec{F} _{12}$
+    y $\vec{F} _{21} $. Se puede ver que ambas tiene direcciones opuestas por la
+    figura \ref{fg:tresparticulas} pero ademas sabemos que estas son de igual modulo porque es una
+    fuerza de interaccion, por lo que la suma entre $\vec{F} _{12}$ y $\vec{F} _{21}$.
+    da cero. Y esto mismo podriamos hacer para cada par de fuerza interna asi que
+    voy a reescribir la ecuacion anterior con los pares entre parentesis.
 
-        % Fuerza 12
-        \draw[thick, ->] (1,1) -- (1.5, 1.5) node[below, right]{$\vec{F}_{12}$};
+    \begin{equation*}
+        m_1 \cdot \frac{\partial \vec{v} _1}{\partial t} + m_2 \cdot \frac{\partial \vec{v} _2}{\partial t} + m_3 \cdot \frac{\partial \vec{v} _3}{\partial t} = (\vec{F} _{12} + \vec{F} _{21}) + (\vec{F} _{23} + \vec{F} _{32}) + (\vec{F} _{13} + \vec{F} _{31})
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \frac{\partial}{\partial t} \left(m_1 \cdot \vec{v} _1 + m_2 \cdot \vec{v} _2 + m_3 \cdot \vec{v} _3 \right) =  0 + 0 + 0
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation}
+        \frac{\partial}{\partial t} \left(\vec{P} _1 + \vec{P} _2 + \vec{P} _3 \right) = \frac{\partial \vec{P}}{\partial t} = 0 \ .
+    \end{equation}
 
-        % Fuerza 13
-        \draw[thick, ->] (1,1) -- (0.5, 1.5) node[below, left]{$\vec{F}_{13}$};
+    De esta ultima expresion tenemos mucho para hablar. Lo primero es que la suma
+    de cada $\vec{P} _i$ donde $i$ es la cantidad de particulas en el sistema que
+    estemos analizando, nos da como resultado el $\vec{P}$ del sistema. Lo segundo
+    que nos dice la expresion es que derivada del impulso lineal del sistema
+    respecto del tiempo del tiempo es cero. Esto nos indica que para todo $t$ el 
+    impulso lineal es constante. En otras palabras, que el impulso lineal se
+    conserva para todo $t$.
 
-        % Particula 2
-        \filldraw[black] (3,3) circle (2pt) node[right]{$m_2$};
-
-        % Fuerza 21
-        \draw[thick, ->] (3,3) -- (2.5, 2.5) node[below, right]{$\vec{F}_{21}$};
-
-        % Fuerza 23
-        \draw[thick, ->] (3,3) -- (2.5, 3) node[below, left]{$\vec{F}_{23}$};
-
-        % Particula 3
-        \filldraw[black] (-1, 3) circle (2pt) node[left]{$m_3$};
-
-        % Fuerza 32
-        \draw[thick, ->] (-1, 3) -- (-0.5, 3) node[below, right]{$\vec{F}_{32}$};
-
-        % Fuerza 31
-        \draw[thick, ->] (-1, 3) -- (-0.5, 2.5) node[below, left]{$\vec{F}_{31}$};
-
-    \end{tikzpicture}
-    \caption{Sistema de 3 particulas que interactuan entre si.}
-    \label{fg:tresparticulas}
-\end{figure}
-
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.6\textwidth}
-
-\section{Impulsó lineal}
-
-Supongamos que nosotros querremos describir una particula como en la 
-figura \ref{fg:unaparticula}. Si, es solo una particula que pareciera ser
-que no se ve afectada por nada. Si nosotros aplicamos lo que vimos en la
-primera parte de la materia tendriamos que la ecuacion de Newton para la
-partícula es la siguiente
-
-\begin{equation}
-    m \cdot \vec{a} = \sum \vec{F} \ .
-\label{eq:sumP}
-\end{equation}
-
-Pero ahora vamos hacer un truco, que en realidad se hace en la primera parte de 
-la materia, y es mirar a la aceleración como la deriva de la velocidad respecto
-del tiempo
-
-\begin{equation}
-    \vec{a} = \frac{\partial \vec{v}}{\partial t} \ .
-\end{equation}
-
-Con esto podemos reemplazar en la ecuacion \ref{eq:sumP}. Ademas, una propiedad
-de cuando uno deriva es que puede sacar las constantes que esten multiplicando
-a la variable que estemos derivando y como para este caso la masa es una
-constante voy hacer lo siguiente y es el paso inverso, meter la masa adentro de
-la derivada.
-
-\begin{equation}
-    m \cdot \frac{\partial \vec{v}}{\partial t} = \sum \vec{F}
-\end{equation}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation*}
-    \frac{\partial}{\partial t} \left( m \cdot \vec{v} \right) = \sum \vec{F} \ .
-\end{equation*}
-
-La expresión que se encuentra dentro de los paréntesis es lo que en fisica se 
-denomina como impulso lineal
-
-\begin{equation}
-    \vec{P} = m \cdot \vec{v}
-\label{eq:impLineal}
-\end{equation}
-como la velocidad $\vec{v}$ es un vector, el impulso lineal $\vec{P}$ es
-propiamente un vector.
-
-Este mismo analisis del impulso lineal no se limita al caso de una particula,
-sino que se puede realizar para un sistemas de $N$ partículas que interactuan
-entre si.
-Veamos el caso que se muestra en la figura \ref{fg:tresparticulas}, podemos ver
-un sistema de 3 particulas que interactuan entre si de tal modo que ninguna de
-ellas mueve a la otra. El primer paso es poner las ecuaciones de Newton para
-cada una de las particulas.
-
-Para la particula 1 tenemos
-\begin{equation*}
-    m_1 \cdot \vec{a} _1 = \vec{F} _{12} + \vec{F} _{13} \ .
-\end{equation*}
-
-\end{minipage}
-\newpage
-\begin{minipage}[t]{0.3\textwidth}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.6\textwidth}
-
-Para la particula 2 tenemos
-\begin{equation*}
-    m_2 \cdot \vec{a} _2 = \vec{F} _{21} + \vec{F} _{23} \ .
-\end{equation*}
-
-Para la particula 3 tenemos
-\begin{equation*}
-    m_3 \cdot \vec{a} _3 = \vec{F} _{31} + \vec{F} _{32} \ .
-\end{equation*}
-
-Ahora podriamos sumar las ecuaciones de Newton de todas las particulas,
-obteniendo
-
-\begin{equation*}
-     m_1 \cdot \vec{a} _1 + m_2 \cdot \vec{a} _2 + m_3 \cdot \vec{a} _3 = \vec{F} _{12} + \vec{F} _{13} + \vec{F} _{21} + \vec{F} _{23} + \vec{F} _{31} + \vec{F} _{32} \ .
-\end{equation*}
-
-Antes de hacer el truco de ver que la aceleracion es la derivada de la
-velocidad respecto del tiempo, me gustaria hacer un comentario sobre las
-fuerzas. Mas que nada me intera los pares, por ejemplo la fuerza $\vec{F} _{12}$
-y $\vec{F} _{21} $. Se puede ver que ambas tiene direcciones opuestas por la
-figura \ref{fg:tresparticulas} pero ademas sabemos que estas son de igual modulo porque es una
-fuerza de interaccion, por lo que la suma entre $\vec{F} _{12}$ y $\vec{F} _{21}$.
-da cero. Y esto mismo podriamos hacer para cada par de fuerza interna asi que
-voy a reescribir la ecuacion anterior con los pares entre parentesis.
-
-\begin{equation*}
-     m_1 \cdot \frac{\partial \vec{v} _1}{\partial t} + m_2 \cdot \frac{\partial \vec{v} _2}{\partial t} + m_3 \cdot \frac{\partial \vec{v} _3}{\partial t} = (\vec{F} _{12} + \vec{F} _{21}) + (\vec{F} _{23} + \vec{F} _{32}) + (\vec{F} _{13} + \vec{F} _{31})
-\end{equation*}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation*}
-   \frac{\partial}{\partial t} \left(m_1 \cdot \vec{v} _1 + m_2 \cdot \vec{v} _2 + m_3 \cdot \vec{v} _3 \right) =  0 + 0 + 0
-\end{equation*}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation}
-    \frac{\partial}{\partial t} \left(\vec{P} _1 + \vec{P} _2 + \vec{P} _3 \right) = \frac{\partial \vec{P}}{\partial t} = 0 \ .
-\end{equation}
-
-De esta ultima expresion tenemos mucho para hablar. Lo primero es que la suma
-de cada $\vec{P} _i$ donde $i$ es la cantidad de particulas en el sistema que
-estemos analizando, nos da como resultado el $\vec{P}$ del sistema. Lo segundo
-que nos dice la expresion es que derivada del impulso lineal del sistema
-respecto del tiempo del tiempo es cero. Esto nos indica que para todo $t$ el 
-impulso lineal es constante. En otras palabras, que el impulso lineal se
-conserva para todo $t$.
-
-\begin{equation}
-    \vec{P} = \vec{P} _1 + \vec{P} _2 + \vec{P} _3 = m_1 \cdot \vec{v} _1 + m_2 \cdot \vec{v} _2 + m_3 \cdot \vec{v} _3 = cte \ .
-    \label{eq:sistP}
-\end{equation}
-
-\end{minipage}
-\newpage
-\begin{minipage}[t]{0.3\textwidth}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.6\textwidth}
-
-Ahora podrimos pensar el mismo ejemplo de las 3 particulas pero ahora teniendo
-en cuenta que tienen una fuerza externa, por ejemplo que todas esten cayendo
-por lo que se ven afectadas por su peso. Para el caso de las fuerzas internas
-seguiria valiendo lo mismo solo que ahora si miramos el sistema de las 3
-particulas vemos que la fuerza peso de cada una no se cancela.
-
-\begin{equation*}
-    \frac{\partial}{\partial t} \left(\vec{P} _1 + \vec{P} _2 + \vec{P} _3 \right) = \frac{\partial \vec{P}}{\partial t} = m_1 \cdot \vec{g} + m_2 \cdot \vec{g} + m_3 \cdot \vec{g}
-\end{equation*}
-como podemos ver ahora el impulso lineal no se conserva. Eso quiere decir que
-si calculamos el $\vec{P}$ para un $t_0$ no va a ser igual a un $\vec{P}$ para
-un $t$ futuro o posterior. Pero lo que si podemos calcular es la diferencia
-del impulso lineal.
-
-\begin{equation}
-    \frac{\partial \vec{P}}{\partial t} = m_1 \cdot \vec{g} + m_2 \cdot \vec{g} + m_3 \cdot \vec{g}
-    \label{eq:deltaP}
-\end{equation}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation*}
-    \partial \vec{P} = ( m_1 \cdot \vec{g} + m_2 \cdot \vec{g} + m_3 \cdot \vec{g} ) \cdot \partial t
-\end{equation*}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation*}
-    \int _{\vec{P_I}}^{\vec{P_F}} \partial \vec{P} = \int _{t_I}^{t_F} m_1 \cdot \vec{g} \cdot \partial t + \int _{t_I}^{t_F} m_2 \cdot \vec{g} \cdot \partial t +\int _{t_I}^{t_F} m_3 \cdot \vec{g} \cdot \partial t
-\end{equation*}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation*}
-    \vec{P_F} - \vec{P_I} = \Delta \vec{P} = m_1 \cdot \vec{g} \cdot (t_F - t_I) + m_2 \cdot \vec{g} \cdot (t_F - t_I) + m_3 \cdot \vec{g} \cdot (t_F - t_I)
-\end{equation*}
-Una mencion de este caso y es que uno podria agarrar un interavalo de tiempo
-tan chico para que todos los terminos que estan a la derecha tiendan a cero. Y
-si lo pongo asi podria decir que el impulso lineal se conserva pero esto solo 
-me serviria si quiero buscar la velocidad en un instante muy corto de tiempo.
-
-En resumen, el impulso lineal se puede calcular de la siguiente manera
-
-\begin{equation*}
-    \vec{P} = \sum _i m_i \cdot \vec{v} _i
-\end{equation*}
-\begin{equation*}
-    \frac{\partial \vec{P}}{\partial t} = \sum \vec{F}^{EXT}
-\end{equation*}
-
-\end{minipage}
-\newpage
-% Columna de las imagenes
-\begin{minipage}[t]{0.3\textwidth}
-\end{minipage}
-\hfill
-% Columna del text
-\begin{minipage}[t]{0.6\textwidth}
-
-\section{Centro de masa y Velocidad centro de masa}
-
-Voy a seguir con el ejemplo del sistema de 3 masas de la figura \ref{fg:tresparticulas}
-y voy a partir de la ecuacion \ref{eq:sistP} para seguir desarrollando un poco mas.
-
-El paso siguiente pensar la velocidad como la derivada de la posicion respecto
-del tiempo. Por lo que obtenes que 
-
-\begin{equation*}
-    \vec{P} = m_1 \cdot \frac{\partial \vec{r} _1}{\partial t} + m_2 \cdot \frac{\partial \vec{r} _2}{\partial t} + m_3 \cdot \frac{\partial \vec{r} _3}{\partial t}
-\end{equation*}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation*}
-    \vec{P} = \frac{\partial}{\partial t}(m_1 \cdot \vec{r} _1 + m_2 \cdot \vec{r} _2 + m_3 \cdot \vec{r} _3)
-\end{equation*}
-ahora si a esta expresion la dividimos por la suma de todas las masas obtenemos
-\begin{equation}
-    \frac{\vec{P}}{m_1 + m_2 + m_3} = \frac{\partial}{\partial t} \left(\frac{m_1 \cdot \vec{r} _1 + m_2 \cdot \vec{r} _2 + m_3 \cdot \vec{r} _3}{m_1 + m_2 + m_3} \right) = cte
-    \label{eq:preRC}
-\end{equation}
-
-De esta ecuacion nos interesa lo que parece en el parentesis. Es lo que se
-denomina como "Centro de Masa". 
-
-\begin{equation}
-    \vec{r} _{CM} = \frac{m_1 \cdot \vec{r} _1 + m_2 \cdot \vec{r} _2 + m_3 \cdot \vec{r} _3}{m_1 + m_2 + m_3}
-    \label{eq:rc}
-\end{equation}
-
-Este es un vector que apunta a un punto imaginario que mejor representa al
-sistema de masas que estemos analizando. Digo imaginario porque no es
-necesario que este punto que mejor representa al sistema este en una de las
-masas. Existe el caso que eso pase y es cuando una de las es muchisimo mayor
-a las otras. Por ejemplo, si $m_1$ tiende a infinito, el centro de masa
-va a estar en la misma posicion que la particula 1.
-
-Ahora me gustaria hablar sobre la derivada del centro de masa y es la velocidad
-centro de masa. Al igual que en la primera parte de cinematica, el vector
-posicion al derivarlo respecto del tiempo se obtiene la velocidad.
-
-\begin{equation*}
-    \frac{\vec{P}}{m_1 + m_2 + m_3} = \vec{v}_{CM} = \frac{\partial}{\partial t} \left(\vec{r} _{CM}\right) = cte
-\end{equation*}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation}
-    \vec{v}_{CM} = \frac{m_1 \cdot \vec{v} _1 + m_2 \cdot \vec{v} _2 + m_3 \cdot \vec{v} _3}{m_1 + m_2 + m_3}
-    \label{eq:vc}
-\end{equation}
-
-\end{minipage}
-\newpage
-\begin{minipage}[t]{0.3\textwidth}
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-
-% Particula 1
-\draw[black] (0,0) circle (5pt) node[right]{$m_1$};
-
-% Velocidad de 1
-\draw[thick, ->] (0, 0.3) -- (1, 0.3) node[right]{$\vec{v}_1$};
-
-% Particula 2
-\draw[black] (2,0) circle (5pt) node[right]{$m_2$};
-
-% Piso
-\draw[black] (-1, -0.2) -- (3, -0.2);
-
-% Sist ref
-\draw[black, ->, thick] (-1, 1) -- (3, 1) node[right]{$\hat{x}$};
-
-\end{tikzpicture}
-\caption{Un choque plastico perfecto.}
-\label{fg:choque}
-\end{figure}
-
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.6\textwidth}
-
-En el caso donde la sumatoria de fuerzas externas de nuestro sistema sea cero.
-Podremos ver que el Centro de masa se mueve como un MRU. Esto se puede ver
-claro con el ejemplo de las 3 particulas porque al llegar a la expresión de
-la velocidad centro de masa mediante podemos ver que esta igualado al impulso
-lineal divido la suma de las masas, el impulso lineal era constante para todo
-tiempo, las masas tambien lo son, entonces por tautologia la velocidad centro
-de masa es constante. En general esto pasa para todo sistema donde la suma
-de las fuerzas externas sea igual a cero.
-
-Una expresion mas en general del centro de masa y la velocidad centro de masa
-es la siguiente
-
-\begin{equation*}
-    \vec{r} _{CM} = \frac{\sum _i m_i \cdot \vec{r} _i}{\sum _i m_i}
-\end{equation*}
-
-\begin{equation*}
-    \vec{v} _{CM} = \frac{\sum _i m_i \cdot \vec{v} _i}{\sum _i m_i}
-\end{equation*}
-
-\ejem{Choque plastico perfecto}{
-Supongamos el escanario de dos pelotitas de masa $m$ como se puede ver
-en la figura \ref{fg:choque} donde la primera pelota tiene una velocida $\vec{v}_1$ y la
-segunda pelota tiene una velocidad $\vec{v} _2 = 0$. En un tiempo $t$ estas
-chochan y se quedan pegadas. Que se puede decir del impulso lineal? Este se
-conserva o no? Y las velocidades despues del choque?
+    \begin{equation}
+        \vec{P} = \vec{P} _1 + \vec{P} _2 + \vec{P} _3 = m_1 \cdot \vec{v} _1 + m_2 \cdot \vec{v} _2 + m_3 \cdot \vec{v} _3 = cte \ .
+        \label{eq:sistP}
+    \end{equation}
 }
 
-De primeras podemos ver que al estar apoyada en el piso la normal de cada
-masa compensa el peso. Por lo si planteamos la conservacion del impulso
-lineal
+\npage{
+}
+{
+    Ahora podrimos pensar el mismo ejemplo de las 3 particulas pero ahora teniendo
+    en cuenta que tienen una fuerza externa, por ejemplo que todas esten cayendo
+    por lo que se ven afectadas por su peso. Para el caso de las fuerzas internas
+    seguiria valiendo lo mismo solo que ahora si miramos el sistema de las 3
+    particulas vemos que la fuerza peso de cada una no se cancela.
 
-\begin{equation*}
-    \frac{\partial}{\partial t} \left( \vec{P} _1 + \vec{P} _2 \right) = \sum F^{EXT} = 0 \ .
-\end{equation*}
+    \begin{equation*}
+        \frac{\partial}{\partial t} \left(\vec{P} _1 + \vec{P} _2 + \vec{P} _3 \right) = \frac{\partial \vec{P}}{\partial t} = m_1 \cdot \vec{g} + m_2 \cdot \vec{g} + m_3 \cdot \vec{g}
+    \end{equation*}
+    como podemos ver ahora el impulso lineal no se conserva. Eso quiere decir que
+    si calculamos el $\vec{P}$ para un $t_0$ no va a ser igual a un $\vec{P}$ para
+    un $t$ futuro o posterior. Pero lo que si podemos calcular es la diferencia
+    del impulso lineal.
 
-Obviamente que la justicacion correcta es hacer las ecuaciones de Newton para 
-cada particular y usar como vinculo que en $\hat{y}$, o $\hat{z}$ dependiendo
-del sistema que uno tenga, no hay aceleracion.
+    \begin{equation}
+        \frac{\partial \vec{P}}{\partial t} = m_1 \cdot \vec{g} + m_2 \cdot \vec{g} + m_3 \cdot \vec{g}
+        \label{eq:deltaP}
+    \end{equation}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \partial \vec{P} = ( m_1 \cdot \vec{g} + m_2 \cdot \vec{g} + m_3 \cdot \vec{g} ) \cdot \partial t
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \int _{\vec{P_I}}^{\vec{P_F}} \partial \vec{P} = \int _{t_I}^{t_F} m_1 \cdot \vec{g} \cdot \partial t + \int _{t_I}^{t_F} m_2 \cdot \vec{g} \cdot \partial t +\int _{t_I}^{t_F} m_3 \cdot \vec{g} \cdot \partial t
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{P_F} - \vec{P_I} = \Delta \vec{P} = m_1 \cdot \vec{g} \cdot (t_F - t_I) + m_2 \cdot \vec{g} \cdot (t_F - t_I) + m_3 \cdot \vec{g} \cdot (t_F - t_I)
+    \end{equation*}
+    Una mencion de este caso y es que uno podria agarrar un interavalo de tiempo
+    tan chico para que todos los terminos que estan a la derecha tiendan a cero. Y
+    si lo pongo asi podria decir que el impulso lineal se conserva pero esto solo 
+    me serviria si quiero buscar la velocidad en un instante muy corto de tiempo.
 
-Pero algo que si podemos ver es que el impulso lineal se conserva porque las
-fuerzas extenernas se compensan. Entonces podriamos calcular el impulso en el
-momento inicial, momento que tenemos los datos, y despues igualarlo al impulso
-en el momento despues del choque ya que estos son lo mismo.
+    En resumen, el impulso lineal se puede calcular de la siguiente manera
 
-Impulso lineal en el instante inicial
-\begin{equation*}
-    \vec{P} _I = m_1 \cdot \vec{v} _1 + m_2 \cdot \vec{v} _2 = m_1 \cdot \vec{v} _1 
-\end{equation*}
+    \begin{equation*}
+        \vec{P} = \sum _i m_i \cdot \vec{v} _i
+    \end{equation*}
+    \begin{equation*}
+        \frac{\partial \vec{P}}{\partial t} = \sum \vec{F}^{EXT}
+    \end{equation*}
 
-\end{minipage}
-\newpage
-\begin{minipage}[t]{0.3\textwidth}
+ }
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
+ \npage{
+ }
+ {
+     \section{Centro de masa y Velocidad centro de masa}
 
-% Pelota
-\draw[black] (0,1) circle (5pt);
+     Voy a seguir con el ejemplo del sistema de 3 masas de la figura \ref{fg:tresparticulas}
+     y voy a partir de la ecuacion \ref{eq:sistP} para seguir desarrollando un poco mas.
 
-% Peso
-\draw[black, ->, thick] (0, 1) -- (0, 0.5) node[below]{$m \cdot \vec{g}$};
+     El paso siguiente pensar la velocidad como la derivada de la posicion respecto
+     del tiempo. Por lo que obtenes que 
 
-% Velocidad
-\draw[black, ->, thick] (1, 1) -- (1, 0.5) node[right]{$\vec{v}$};
+     \begin{equation*}
+         \vec{P} = m_1 \cdot \frac{\partial \vec{r} _1}{\partial t} + m_2 \cdot \frac{\partial \vec{r} _2}{\partial t} + m_3 \cdot \frac{\partial \vec{r} _3}{\partial t}
+     \end{equation*}
+     \begin{equation*}
+         \Downarrow
+     \end{equation*}
+     \begin{equation*}
+         \vec{P} = \frac{\partial}{\partial t}(m_1 \cdot \vec{r} _1 + m_2 \cdot \vec{r} _2 + m_3 \cdot \vec{r} _3)
+     \end{equation*}
+     ahora si a esta expresion la dividimos por la suma de todas las masas obtenemos
+     \begin{equation}
+         \frac{\vec{P}}{m_1 + m_2 + m_3} = \frac{\partial}{\partial t} \left(\frac{m_1 \cdot \vec{r} _1 + m_2 \cdot \vec{r} _2 + m_3 \cdot \vec{r} _3}{m_1 + m_2 + m_3} \right) = cte
+         \label{eq:preRC}
+     \end{equation}
 
-% Piso
-\draw[black] (-1, -0.2) -- (3, -0.2);
+     De esta ecuacion nos interesa lo que parece en el parentesis. Es lo que se
+     denomina como "Centro de Masa". 
 
-% Sist ref
-\draw[black, ->, thick] (-0.7, 0) -- (-0.7, 1) node[left]{$\hat{z}$};
+     \begin{equation}
+         \vec{r} _{CM} = \frac{m_1 \cdot \vec{r} _1 + m_2 \cdot \vec{r} _2 + m_3 \cdot \vec{r} _3}{m_1 + m_2 + m_3}
+         \label{eq:rc}
+     \end{equation}
 
-\end{tikzpicture}
-\caption{Una pelota cayendo.}
-\label{fg:deltaP}
-\end{figure}
+     Este es un vector que apunta a un punto imaginario que mejor representa al
+     sistema de masas que estemos analizando. Digo imaginario porque no es
+     necesario que este punto que mejor representa al sistema este en una de las
+     masas. Existe el caso que eso pase y es cuando una de las es muchisimo mayor
+     a las otras. Por ejemplo, si $m_1$ tiende a infinito, el centro de masa
+     va a estar en la misma posicion que la particula 1.
 
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.6\textwidth}
+     Ahora me gustaria hablar sobre la derivada del centro de masa y es la velocidad
+     centro de masa. Al igual que en la primera parte de cinematica, el vector
+     posicion al derivarlo respecto del tiempo se obtiene la velocidad.
 
-Impulso lineal en el instante final
-\begin{equation*}
-    \vec{P} _F = (m_1 + m_2) \cdot \vec{v} _{1-2}
-\end{equation*}
+     \begin{equation*}
+         \frac{\vec{P}}{m_1 + m_2 + m_3} = \vec{v}_{CM} = \frac{\partial}{\partial t} \left(\vec{r} _{CM}\right) = cte
+     \end{equation*}
+     \begin{equation*}
+         \Downarrow
+     \end{equation*}
+     \begin{equation}
+         \vec{v}_{CM} = \frac{m_1 \cdot \vec{v} _1 + m_2 \cdot \vec{v} _2 + m_3 \cdot \vec{v} _3}{m_1 + m_2 + m_3}
+         \label{eq:vc}
+     \end{equation}
 
-Ahora igualamos los impulsos
-\begin{equation*}
- \vec{P} _I = \vec{P} _F
-\end{equation*}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation*}
-    m_1 \cdot \vec{v} _1 = (m_1 + m_2) \cdot \vec{v} _{1-2} \ .
-\end{equation*}
-
-Ahora usemos el dato de que tienen masas iguales
-
-\begin{equation*}
-    m \cdot \vec{v} _1 = (m + m) \cdot \vec{v} _{1-2}
-\end{equation*}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation*}
-    \vec{v} _{1-2} = \frac{\vec{v} _1}{2}
-\end{equation*}
-vemos que la velocidad final es la mitad de la velocidad incial de pelotita 1.
-
-\ejem{Otro Ejemplo}{
-Ahora supongamos el caso de una pelota de masa $m = 0,2 kg$ como se puede ver
-en la figura \label{fg:deltaP} que cae con una velocidad $\vec{v} = 8 \frac{m}{s}$.
-Cuando llega al piso rebota y vuelve con el mismo $ |v| $. Ademas,
-supongamos que el contacto con el piso dura $10^{-3} s$. Que se puede decir
-del impulso lineal?
 }
 
-Calculemos primero el impulso lineal en el instante inicial con los datos que
-tenemos
-\begin{equation*}
-    \vec{P} _{I} = 0,2 kg \cdot 8 \frac{m}{s} \ ( - \hat{z} ) = - 1,6 kg \cdot \frac{m}{s} \ \hat{z} \ .
-\end{equation*}
+\npage{
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            % Particula 1
+            \draw[black] (0,0) circle (5pt) node[right]{$m_1$};
 
-Ahora calculemos el impulso lineal pero en el instante donde vuelve. Vamos a
-decir que es el instante final de nuestro analisis
-\begin{equation*}
-    \vec{P} _{F} = 0,2 kg \cdot 8 \frac{m}{s} \ \hat{z} \ = 1,6 kg \cdot \frac{m}{s} \ \hat{z} \ .
-\end{equation*}
+            % Velocidad de 1
+            \draw[thick, ->] (0, 0.3) -- (1, 0.3) node[right]{$\vec{v}_1$};
 
-Es bastante claro que en este caso el impulso lineal no se conserva. Vemos que
-para el instante inicial el impulso lineal es negativo pero en el instante
-final este es positivo.
+            % Particula 2
+            \draw[black] (2,0) circle (5pt) node[right]{$m_2$};
 
-\end{minipage}
-\newpage
-\begin{minipage}[t]{0.3\textwidth}
+            % Piso
+            \draw[black] (-1, -0.2) -- (3, -0.2);
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[scale=0.7]
-  \begin{axis}[
-    axis lines = middle,
-    axis y line*=left,
-    xlabel = $t$,
-    ylabel = {$F$},
-    domain=-4:4,
-    samples=100,
-    xtick=\empty,
-    ytick=\empty,
-    ymin=0,
-    ymax=0.5,
-    enlargelimits=false,
-    clip=false,
-    axis line style={thick}
-  ]
-    
-    % Fill the area under the curve
-    \addplot [
-      domain=-3:3,
-      samples=100,
-      fill=gray, 
-      fill opacity=0.7
-    ] {exp(-0.5*x^2)/sqrt(2*pi)} \closedcycle;
+            % Sist ref
+            \draw[black, ->, thick] (-1, 1) -- (3, 1) node[right]{$\hat{x}$};
 
-    % Plot the Gaussian function
-    \addplot [
-      thick,
-      red,
-    ] {exp(-0.5*x^2)/sqrt(2*pi)};
+        \end{tikzpicture}
+        \caption{Un choque plastico perfecto.}
+        \label{fg:choque}
+    \end{figure}
+}
+{
 
-    \node at (axis cs:0,0.2) {$\Delta \bar{P}$};
-    \node at (axis cs:  -3, -0.02) {$t_I$};
-    \node at (axis cs:  3, -0.02) {$t_F$};
-      \node[red] at (axis cs:0, 0.35) {$\bar{F}$};
-  \end{axis}
-\end{tikzpicture}
-\caption{Grafico de delta $\vec{P}$.}
-\label{fg:graficoDeltaP}
-\end{figure}
+    En el caso donde la sumatoria de fuerzas externas de nuestro sistema sea cero.
+    Podremos ver que el Centro de masa se mueve como un MRU. Esto se puede ver
+    claro con el ejemplo de las 3 particulas porque al llegar a la expresión de
+    la velocidad centro de masa mediante podemos ver que esta igualado al impulso
+    lineal divido la suma de las masas, el impulso lineal era constante para todo
+    tiempo, las masas tambien lo son, entonces por tautologia la velocidad centro
+    de masa es constante. En general esto pasa para todo sistema donde la suma
+    de las fuerzas externas sea igual a cero.
 
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.6\textwidth}
+    Una expresion mas en general del centro de masa y la velocidad centro de masa
+    es la siguiente
 
-Lo siguiente es preguntarnos cual es la diferencia que existe entre los impulsos
-A priori sabemos que ese cambio de velocidad se debe a la interaccion con el
-piso. Tratemos de escribir esto con las ecuaciones de Newton
+    \begin{equation*}
+        \vec{r} _{CM} = \frac{\sum _i m_i \cdot \vec{r} _i}{\sum _i m_i}
+    \end{equation*}
 
-\begin{equation*}
-    m_p \cdot \vec{a}_p = \vec{F} ^{PISO} + m \cdot \vec{g}
-\end{equation*}
+    \begin{equation*}
+        \vec{v} _{CM} = \frac{\sum _i m_i \cdot \vec{v} _i}{\sum _i m_i}
+    \end{equation*}
 
-Si aplicamos el mismo procedimiento que realice anteriormente en la ecuacion
-\ref{eq:deltaP}, llegamos a lo siguiente
-\begin{equation*}
-    \Delta P = \int _{t_I}^{t_F} \partial \vec{P} = \int _{t_I}^{t_F} \vec{F} ^{PISO} \ \partial t + \int _{t_I}^{t_F} m \cdot \vec{g} \ \partial t
-\end{equation*}
-los terminos de la izquierda ya los calculamos asi que vamos hablar sobre los
-terminos de la derecha. El termino que esta multiplicando la masa por la
-gravedad va a dar un resultado muy chico, osea que va a ser un par de decimales,
-porque la masa es muy chica y el intervalo de tiempo es de un milisegundo, por
-lo que para los siguientes calculos yo lo voy a despreciar. Por ultimo,
-$t_F$ lo podemos definir como $t_I + 1ms$ porque nos dice que el tiempo que
-esta en el piso.
+    \ejem{Choque plastico perfecto}{
+        Supongamos el escanario de dos pelotitas de masa $m$ como se puede ver
+        en la figura \ref{fg:choque} donde la primera pelota tiene una velocida $\vec{v}_1$ y la
+        segunda pelota tiene una velocidad $\vec{v} _2 = 0$. En un tiempo $t$ estas
+        chochan y se quedan pegadas. Que se puede decir del impulso lineal? Este se
+        conserva o no? Y las velocidades despues del choque?
+    }
 
-\begin{equation*}
-    \Delta \vec{P} = 1,6 kg \cdot \frac{m}{s} \ \hat{z} - \left( - 1,6 kg \cdot \frac{m}{s} \ \hat{z} \right) = \int _{t_I}^{t_F} \vec{F} ^{PISO} \ \partial t + (Algo \ chico)
-\end{equation*}
-\begin{equation*}
-    \Downarrow
-\end{equation*}
-\begin{equation*}
-    \Delta \vec{P} = 3,2 kg \cdot \frac{m}{s} \ \hat{z} = \int _{t_I}^{t_I + 1ms} \vec{F} ^{PISO} \ \partial t \ .
-\end{equation*}
+    De primeras podemos ver que al estar apoyada en el piso la normal de cada
+    masa compensa el peso. Por lo si planteamos la conservacion del impulso
+    lineal
 
-Una forma grafica de ver este resultado es el grafico \ref{fg:graficoDeltaP}
-donde se puede ver que el area debajo de la curva es el $\Delta \vec{P}$.
-Ademas, un comentario sobre la fuerza y es que si nosotros divimos el termino
-de la derecha por el intevalo de tiempo, obtenemos el valor de la fuerza
-promedio en ese tiempo
-\begin{equation*}
-    \frac{\int _{t_I}^{t_F} \vec{F} ^{PISO} \ \partial t}{t_F - t_I} = Valor \ promedio \ .
-\end{equation*}
+    \begin{equation*}
+        \frac{\partial}{\partial t} \left( \vec{P} _1 + \vec{P} _2 \right) = \sum F^{EXT} = 0 \ .
+    \end{equation*}
 
-\end{minipage}
-\newpage
-% Columna de las imagenes
-\begin{minipage}[t]{0.3\textwidth}
-\end{minipage}
-\hfill
-% Columna del text
-\begin{minipage}[t]{0.6\textwidth}
-\section{Impulso Angular}
-nota del 17 de mayo y me gustaria llegar al 31 de mayo.
-\end{minipage}
+    Obviamente que la justicacion correcta es hacer las ecuaciones de Newton para 
+    cada particular y usar como vinculo que en $\hat{y}$, o $\hat{z}$ dependiendo
+    del sistema que uno tenga, no hay aceleracion.
+
+    Pero algo que si podemos ver es que el impulso lineal se conserva porque las
+    fuerzas extenernas se compensan. Entonces podriamos calcular el impulso en el
+    momento inicial, momento que tenemos los datos, y despues igualarlo al impulso
+    en el momento despues del choque ya que estos son lo mismo.
+
+}
+
+\npage{
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+
+            % Pelota
+            \draw[black] (0,1) circle (5pt);
+
+            % Peso
+            \draw[black, ->, thick] (0, 1) -- (0, 0.5) node[below]{$m \cdot \vec{g}$};
+
+            % Velocidad
+            \draw[black, ->, thick] (1, 1) -- (1, 0.5) node[right]{$\vec{v}$};
+
+            % Piso
+            \draw[black] (-1, -0.2) -- (3, -0.2);
+
+            % Sist ref
+            \draw[black, ->, thick] (-0.7, 0) -- (-0.7, 1) node[left]{$\hat{z}$};
+
+        \end{tikzpicture}
+        \caption{Una pelota cayendo.}
+        \label{fg:deltaP}
+    \end{figure}
+}
+{
+    Impulso lineal en el instante inicial
+    \begin{equation*}
+        \vec{P} _I = m_1 \cdot \vec{v} _1 + m_2 \cdot \vec{v} _2 = m_1 \cdot \vec{v} _1 
+    \end{equation*}
+
+    Impulso lineal en el instante final
+    \begin{equation*}
+        \vec{P} _F = (m_1 + m_2) \cdot \vec{v} _{1-2}
+    \end{equation*}
+
+    Ahora igualamos los impulsos
+    \begin{equation*}
+        \vec{P} _I = \vec{P} _F
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        m_1 \cdot \vec{v} _1 = (m_1 + m_2) \cdot \vec{v} _{1-2} \ .
+    \end{equation*}
+
+    Ahora usemos el dato de que tienen masas iguales
+
+    \begin{equation*}
+        m \cdot \vec{v} _1 = (m + m) \cdot \vec{v} _{1-2}
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{v} _{1-2} = \frac{\vec{v} _1}{2}
+    \end{equation*}
+    vemos que la velocidad final es la mitad de la velocidad incial de pelotita 1.
+
+    \ejem{Otro Ejemplo}{
+        Ahora supongamos el caso de una pelota de masa $m = 0,2 kg$ como se puede ver
+        en la figura \ref{fg:deltaP} que cae con una velocidad $\vec{v} = 8 \frac{m}{s}$.
+        Cuando llega al piso rebota y vuelve con el mismo $ |v| $. Ademas,
+        supongamos que el contacto con el piso dura $10^{-3} s$. Que se puede decir
+        del impulso lineal?
+    }
+
+    Calculemos primero el impulso lineal en el instante inicial con los datos que
+    tenemos
+    \begin{equation*}
+        \vec{P} _{I} = 0,2 kg \cdot 8 \frac{m}{s} \ ( - \hat{z} ) = - 1,6 kg \cdot \frac{m}{s} \ \hat{z} \ .
+    \end{equation*}
+
+    Ahora calculemos el impulso lineal pero en el instante donde vuelve. Vamos a
+    decir que es el instante final de nuestro analisis
+    \begin{equation*}
+        \vec{P} _{F} = 0,2 kg \cdot 8 \frac{m}{s} \ \hat{z} \ = 1,6 kg \cdot \frac{m}{s} \ \hat{z} \ .
+    \end{equation*}
+
+    Es bastante claro que en este caso el impulso lineal no se conserva. Vemos que
+    para el instante inicial el impulso lineal es negativo pero en el instante
+    final este es positivo.
+
+}
+
+\npage{
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=0.7]
+            \begin{axis}[
+                    axis lines = middle,
+                    axis y line*=left,
+                    xlabel = $t$,
+                    ylabel = {$F$},
+                    domain=-4:4,
+                    samples=100,
+                    xtick=\empty,
+                    ytick=\empty,
+                    ymin=0,
+                    ymax=0.5,
+                    enlargelimits=false,
+                    clip=false,
+                    axis line style={thick}
+                ]
+
+                % Fill the area under the curve
+                \addplot [
+                    domain=-3:3,
+                    samples=100,
+                    fill=gray, 
+                    fill opacity=0.7
+                ] {exp(-0.5*x^2)/sqrt(2*pi)} \closedcycle;
+
+                % Plot the Gaussian function
+                \addplot [
+                    thick,
+                    red,
+                ] {exp(-0.5*x^2)/sqrt(2*pi)};
+
+                \node at (axis cs:0,0.2) {$\Delta \bar{P}$};
+                \node at (axis cs:  -3, -0.02) {$t_I$};
+                \node at (axis cs:  3, -0.02) {$t_F$};
+                \node[red] at (axis cs:0, 0.35) {$\bar{F}$};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Grafico de delta $\vec{P}$.}
+        \label{fg:graficoDeltaP}
+    \end{figure}
+
+}
+{
+    Lo siguiente es preguntarnos cual es la diferencia que existe entre los impulsos
+    A priori sabemos que ese cambio de velocidad se debe a la interaccion con el
+    piso. Tratemos de escribir esto con las ecuaciones de Newton
+
+    \begin{equation*}
+        m_p \cdot \vec{a}_p = \vec{F} ^{PISO} + m \cdot \vec{g}
+    \end{equation*}
+
+    Si aplicamos el mismo procedimiento que realice anteriormente en la ecuacion
+    \ref{eq:deltaP}, llegamos a lo siguiente
+    \begin{equation*}
+        \Delta P = \int _{t_I}^{t_F} \partial \vec{P} = \int _{t_I}^{t_F} \vec{F} ^{PISO} \ \partial t + \int _{t_I}^{t_F} m \cdot \vec{g} \ \partial t
+    \end{equation*}
+    los terminos de la izquierda ya los calculamos asi que vamos hablar sobre los
+    terminos de la derecha. El termino que esta multiplicando la masa por la
+    gravedad va a dar un resultado muy chico, osea que va a ser un par de decimales,
+    porque la masa es muy chica y el intervalo de tiempo es de un milisegundo, por
+    lo que para los siguientes calculos yo lo voy a despreciar. Por ultimo,
+    $t_F$ lo podemos definir como $t_I + 1ms$ porque nos dice que el tiempo que
+    esta en el piso.
+
+    \begin{equation*}
+        \Delta \vec{P} = 1,6 kg \cdot \frac{m}{s} \ \hat{z} - \left( - 1,6 kg \cdot \frac{m}{s} \ \hat{z} \right) = \int _{t_I}^{t_F} \vec{F} ^{PISO} \ \partial t + (Algo \ chico)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \Delta \vec{P} = 3,2 kg \cdot \frac{m}{s} \ \hat{z} = \int _{t_I}^{t_I + 1ms} \vec{F} ^{PISO} \ \partial t \ .
+    \end{equation*}
+
+    Una forma grafica de ver este resultado es el grafico \ref{fg:graficoDeltaP}
+    donde se puede ver que el area debajo de la curva es el $\Delta \vec{P}$.
+    Ademas, un comentario sobre la fuerza y es que si nosotros divimos el termino
+    de la derecha por el intevalo de tiempo, obtenemos el valor de la fuerza
+    promedio en ese tiempo
+    \begin{equation*}
+        \frac{\int _{t_I}^{t_F} \vec{F} ^{PISO} \ \partial t}{t_F - t_I} = Valor \ promedio \ .
+    \end{equation*}
+
+}
+
+\npage{
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+
+            % Particula 1
+            \filldraw[black] (1,1) circle (2pt) node[below]{$m_1$};
+
+            % Particula 2
+            \filldraw[black] (3,3) circle (2pt) node[right]{$m_2$};
+
+            % Particula 3
+            \filldraw[black] (-1, 3) circle (2pt) node[left]{$m_3$};
+
+            % r 1
+            \draw[thick, ->] (1, 2.2) -- (1, 1.2) node[left]{$\vec{r}_{1}$};
+
+            % r 2
+            \draw[thick, ->] (1, 2.2) -- (2.8, 3) node[xshift=-6 ,yshift=7]{$\vec{r}_{2}$};
+
+            % r 3
+            \draw[thick, ->] (1, 2.2) -- (-0.9, 3) node[xshift=6 ,yshift=6]{$\vec{r}_{3}$};
+
+            % Punto O
+            \filldraw[blue] (1, 2.2) circle (2pt) node[xshift=-6 ,yshift=-5]{$O$};
+
+        \end{tikzpicture}
+        \caption{Sistema de 3 particulas que interactuan entre si pero
+        ahora con un punto de referencia.}
+        \label{fg:tresparticulasO}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=0.4]
+
+            % Particula 1
+            \filldraw[black] (1, -1) circle (3pt);
+
+            % Particula 2
+            \filldraw[black] (2, 0) circle (3pt);
+
+            % Particula 3
+            \filldraw[black] (-2, 0) circle (3pt);
+
+            % Vector L
+            \draw[black, thick, ->] (0, 0) -- (0, 3) node[yshift=6]{$\vec{L}_O$};
+
+            % Vector r1
+            \draw[black, thick, ->] (0, 0) -- (0.9, -1);
+
+            % Vector r2
+            \draw[black, thick, ->] (0, 0) -- (1.9, 0);
+
+            % Vector r3
+            \draw[black, thick, ->] (0, 0) -- (-1.9, 0);
+
+            % Vector P1
+            \draw[black, thick, ->] (1, -1) -- (2, -1);
+
+            % Vector P2
+            \draw[black, thick, ->] (2, 0) -- (2.5, 0.5);
+
+            % Vector P3
+            \draw[black, thick, ->] (-2, 0) -- (-3, -0.5);
+
+            % Lineas del plano
+            \draw[black, thick, dashed] (6, 1) --
+            (-4.5, 1) --
+            (-6, -2) --
+            (4.5, -2) --
+            (6, 1);
+
+            % Punto O
+            \filldraw[blue] (0, 0) circle (3pt) node[xshift = -5, yshift = -5]{$O$};
+
+        \end{tikzpicture}
+        \caption{Vista del sistema 3 particulas. Se puede ver como hay un 
+        plano que las une.}
+        \label{fg:tresparticulasOplano}
+    \end{figure}
+}
+{
+        \section{Impulso Angular}
+
+        % Nota del 17 de mayo y me gustaria llegar al 31 de mayo.
+
+        Para esta parte me gustaria basarme nuevamente en el ejercicio de las 3
+        particulas. En si lo que quiero demostrar ahora como el movimiento de estas
+        tres pariculas quedan establecidos por un plano. Para ello, es necesario que
+        establezca un punto donde me voy a parar para ver a las particulas. Tal como
+        se puede ver en la figura \ref{fg:tresparticulasO}, voy a pararme en el punto
+        $O$. Este punto en si no tiene nada que ver con el origen de mi sistema de 
+        referencia ni nada por el estilo, por ahora solo voy a pedir que sea un punto
+        arbitrario.
+
+        Entonces, si partimos de la ecuacion de Newton del sistema de 3 particulas y ya
+        teniendo en cuenta que las fuerzas internas se cancelan podemos ver que es 
+        necesario establecer lo siguiente
+        \begin{equation*}
+            \vec{r}_1 \times m_1 \vec{a}_1 + \vec{r}_2 \times m_2 \vec{a}_2 + \vec{r}_3 \times m_3 \vec{a}_3 = 0
+        \end{equation*}
+        esta condicion del producto escalar se lo conoce como el \textit{momento de una fuerza}
+        y representa el hecho experimental de que las fuerzas de interaccion. Quiero
+        mencionar que para llegar a esta ecuacion se plantea la ecuacion de newton de
+        cada particula, luego el producto escalar del vector posicion respecto del
+        punto $O$. Por ultimo se suman las tres ecuaciones de Newton. Aunque aun no
+        termine con esta expresion, ahora tenemos que volver a ver la aceleracion como
+        la derivada de la velocidad respecto del tiempo
+
+        \begin{equation*}
+            \vec{r}_1 \times m_1 \frac{\partial \vec{v} _1}{\partial t} + \vec{r}_2 \times m_2 \frac{\partial \vec{v} _2}{\partial t} + \vec{r}_3 \times m_3 \frac{\partial \vec{v} _3}{\partial t} = 0
+        \end{equation*}
+        \begin{equation*}
+            \Downarrow
+        \end{equation*}
+        \begin{equation}
+            \frac{\partial}{\partial t} \left( \vec{r}_1 \times m_1 \vec{v} _1 + \vec{r}_2 \times m_2 \vec{v} _2 + \vec{r}_3 \times m_3 \vec{v} _3 \right) = 0 \ .
+            \label{eq:partialL}
+        \end{equation}
+        Lo del parentesis es la nueva expresion que se presenta en esta seccion y es
+        el impulso angular
+
+        \begin{equation}
+            \vec{L}_O = \vec{r}_1 \times m_1 \vec{v} _1 + \vec{r}_2 \times m_2 \vec{v} _2 + \vec{r}_3 \times m_3 \vec{v} _3
+        \end{equation}
+        como mencione anteriormente, este impulso angular es solo valido para el punto
+        $O$, por eso la anotacion del subíndice.
+
+}
+
+\npage{
+}
+{
+    Para este caso, y todos los casos que suceda esto mismo, el impulso
+    cuando la derivada del impulso lineal se conserve, como pasa en la
+    ecuacion \ref{eq:partialL}, cuando la derivada del impulso angular
+    respecto del tiempo es igual a cero, quiere decir que el plano que
+    se puede ver como linea punteada en la figura \ref{fg:tresparticulasOplano}
+    es constante.
+
+    En cambio si existiera una fuerza externa como por ejemplo si estas
+    particualas estan cayendo aparece la fuerza peso, se puede ver que
+    la derivada no va a ser cero
+
+    \begin{equation*}
+        \frac{\partial \vec{L} _O}{\partial t} = \vec{r}_1 \times m_1 \vec{g} + \vec{r}_2 \times m_2 \vec{g} + \vec{r}_3 \times m_3 \vec{g}
+    \end{equation*}
+    como lo es este caso. Obviamente, ahora el plano no se conserva.
+
+    Los terminos sumando se lo conoce como torques y se escribe de la 
+    siguiente manera
+    \begin{equation*}
+        \frac{\partial \vec{L} _O}{\partial t} = \vec{M} _O = \vec{M} _O ^{m_1 \vec{g}} + \vec{M} _O ^{m_2 \vec{g}} + \vec{M} _O ^{m_3 \vec{g}} \ .
+    \end{equation*}
+
+    Ahora me gustaria mostrar una relacion que existe si medimos el 
+    impulso angular desde un punto $O$ y un punto $O'$. Partiendo de la
+    relacion del impulso angular para una masa tenemos que
+    \begin{equation*}
+        \vec{L}_O = \vec{r} _O \times m \vec{v} = \vec{r}_O \times \vec{P}
+    \end{equation*}
+    y sabiendo que $\vec{r} _O$ es la suma de los vectores $\vec{r} _{OO'}$
+    y $\vec{r} _{O'}$
+    \begin{equation*}
+        \vec{L}_O = \left( \vec{r} _{O'} + \vec{r} _{OO'} \right) \times \vec{P}
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{L}_O = \vec{r} _{O'} \times \vec{P} + \vec{r} _{OO'} \times \vec{P}
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{L}_O = \vec{L}_{O'} + \vec{r} _{OO'} \times \vec{P} \ .
+    \end{equation*}
+
+    Existe un caso especial pero analogo a esto y es que pasa si es un
+    ahora tenemos en cuenta un sistema de particulas y usamos el centro
+    de masa. Para eso vamos a seguir midiendo desde el punto $O$
+    \begin{equation*}
+        \vec{L}_O = \sum _i \vec{r}_i \times \vec{P}_i
+    \end{equation*}
+
+}
+
+\npage{
+}
+{
+    Ahora podemos usar y restar el $\vec{R}_{CM}$
+
+    \begin{equation*}
+        \vec{L}_O = \sum _i \left( \vec{r}_i - \vec{R}_{CM} + \vec{R}_{CM} \right) \times \vec{P}_i
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{L}_O = \sum _i \left( \vec{r}_i - \vec{R}_{CM} \right) \times \vec{P}_i + \sum _i \vec{R}_{CM} \times \vec{P}_i
+    \end{equation*}
+    el termino $\vec{r}_i - \vec{R}_{CM}$ que medir la distancia desde
+    el centro de masa a la particula $i$
+    \begin{equation*}
+        \vec{L}_O = \sum _i \left( \vec{r}_{i-CM} \right) \times \vec{P}_i + \sum _i \vec{R}_{CM} \times \vec{P}_i
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{L}_O = \vec{L}_{CM} + \vec{R}_{CM} \times \vec{P}
+    \end{equation*}
+    entonces tenemos que el primer termino es el impulso angular del
+    centro de masa y el segundo se lo conoce como el
+    \textit{Movimiento angular rotantate} medido desde el punto $O$.
+
+}
 \end{document}

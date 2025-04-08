@@ -1,0 +1,501 @@
+\documentclass[../Main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Cuerpo rigido}
+
+\intro{
+    A
+    }
+
+\npage{
+% No hay imagenes en esta pagina
+}{
+
+    \section{Cinematica de un cuerpo rigido}
+    Una condicion especial que tiene un cuerpo rigido es que al agarrar una
+    particula $i$ y una particula $j$ se cumple que su distancia relativa es
+    constante para todo momento.
+    \begin{equation}
+        |r_{ij} | = | r_i - r_j | = cte
+        \label{eq:condrigidez}
+    \end{equation}
+    a esto se lo conoce como \textit{Condicion de Rigidez}.
+
+    Ademas, un cuerpo rigido puede realizar dos tipos de movimieno diferentes.
+
+    \begin{itemize}
+        \item \textbf{Traslacion Pura:} Solo se traslada de posicion;
+        \item \textbf{Rotacion Pura:} Existen un campo de velocidades y gira.
+    \end{itemize}
+    Y, obviamente, puede realizar una combinación de las dos, osea una \textbf{Roto transalacion}.
+
+    Si tenemos en cuanta la ecuacion \ref{eq:condrigidez}, podemos decir que 
+    \begin{equation}
+        \vec{r_{ij}} = \vec{r_i} - \vec{r_j} \rightarrow \vec{v_{ij}} = \vec{v_i} - \vec{v_j}
+        \label{eq:aux1}
+    \end{equation}
+    pero si lo vemos desde la velocidad
+    \begin{equation*}
+        \vec{v_{ij}} = \frac{\partial }{\partial t} \left( \vec{r_{ij}} \right) = \frac{\partial }{\partial t} \left( r_{ij} \cdot \hat{r}_{ij} \right)
+    \end{equation*}
+    si tenemos en cuenta la regla de la cadena de una derivada
+    \begin{equation*}
+        \vec{v_{ij}} = \frac{\partial }{\partial t} \left( r_{ij} \right) \cdot \hat{r}_{ij} + r_{ij} \cdot \frac{\partial }{\partial t} \left( \hat{r}_{ij} \right)
+    \end{equation*}
+    sabemos que la distancia entre los puntos no puede variar durante el tiempo
+    ya que romperia con la condicion de rigidez, asi que solo nos queda el segundo
+    termino
+    \begin{equation*}
+        \vec{v_{ij}} = r_{ij} \cdot \frac{\partial }{\partial t} \left( \hat{r}_{ij} \right) = r_{ij} \cdot \vec{\Omega} \times \hat{r}_{ij}
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{v_{ij}} = \vec{\Omega} \times \vec{r}_{ij}
+    \end{equation*}
+    entonces si unimos con lo que habiamos conseguido en \ref{eq:aux1}
+    \begin{equation*}
+        \vec{v_{ij}} = \vec{v_i} - \vec{v_j} = \vec{\Omega} \times \vec{r}_{ij}
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+
+        }
+
+\npage{
+% No hay imagenes en esta pagina
+}
+{
+    \begin{equation}
+        \vec{v_i} = \vec{v_j} + \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{j} \right) \ .
+    \end{equation}
+
+    Partiendo de esta relacion podemos ver una condicion de las velocidades
+    \begin{equation*}
+        \vec{v_i} = \vec{v_j} + \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{j} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{v_i} - \vec{v_j} = \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{j} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \left( \vec{v_i} - \vec{v_j} \right) \cdot \left( \vec{r}_{i} - \vec{r}_{j} \right) = \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{j} \right) \cdot \left( \vec{r}_{i} - \vec{r}_{j} \right)
+    \end{equation*}
+    la igualdad de la derecha es cero porque cuando uno hace el producto cruz
+    consigue un ortogal de los vectores, si ademas hacemos el producto interno de 
+    los factores eso va a dar como resultado cero ya que son ortogonales
+    \begin{equation*}
+        \left( \vec{v_i} - \vec{v_j} \right) \cdot \left( \vec{r}_{i} - \vec{r}_{j} \right) = 0
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{v_i} \cdot \left( \vec{r}_{i} - \vec{r}_{j} \right) - \vec{v_j} \cdot \left( \vec{r}_{i} - \vec{r}_{j} \right) = 0
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{v_i} \cdot \left( \vec{r}_{i} - \vec{r}_{j} \right) = \vec{v_j} \cdot \left( \vec{r}_{i} - \vec{r}_{j} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{v_i} \cdot \hat{r}_{ij} = \vec{v_j} \cdot \hat{r}_{ij}
+    \end{equation*}
+
+    Ahora me gustaria mostrar si el omega del rigido es valido para todo el cuerpo
+    rigido. Para eso voy a describir la velocidad desde tres puntos distintos
+    \begin{equation*}
+        \vec{v_i} = \vec{v_p} + \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{p} \right)
+    \end{equation*}
+    \begin{equation*}
+        \vec{v_i} = \vec{v_q} + \vec{\Omega}' \times \left( \vec{r}_{i} - \vec{r}_{q} \right)
+    \end{equation*}
+    \begin{equation*}
+        \vec{v_q} = \vec{v_p} + \vec{\Omega} \times \left( \vec{r}_{q} - \vec{r}_{p} \right)
+    \end{equation*}
+
+    donde $\vec{\Omega}'$ es otro omega del rigido que en principio no se si es
+    igual al omega del rigido medido desde el punto $p$. El proximo paso es remplazar
+    la ultima ecuacion en la segunda
+    \begin{equation*}
+        \vec{v_i} = \vec{v_p} + \vec{\Omega} \times \left( \vec{r}_{q} - \vec{r}_{p} \right) + \vec{\Omega}' \times \left( \vec{r}_{i} - \vec{r}_{q} \right)
+    \end{equation*}
+    ahora igualamos con la primera ecuacion
+    \begin{equation*}
+        \vec{v_p} + \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{p} \right) = \vec{v_p} + \vec{\Omega} \times \left( \vec{r}_{q} - \vec{r}_{p} \right) + \vec{\Omega}' \times \left( \vec{r}_{i} - \vec{r}_{q} \right)
+    \end{equation*}
+
+}
+
+\npage{
+    % No hay imagenes en esta pagina
+}
+{
+
+    \begin{equation*}
+        \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{p} \right) = \vec{\Omega} \times \left( \vec{r}_{q} - \vec{r}_{p} \right) + \vec{\Omega}' \times \left( \vec{r}_{i} - \vec{r}_{q} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{p} \right) - \vec{\Omega} \times \left( \vec{r}_{q} - \vec{r}_{p} \right) = \vec{\Omega}' \times \left( \vec{r}_{i} - \vec{r}_{q} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{\Omega} \times \left( \left( \vec{r}_{i} - \vec{r}_{p} \right) - \left( \vec{r}_{q} - \vec{r}_{p} \right) \right) = \vec{\Omega}' \times \left( \vec{r}_{i} - \vec{r}_{q} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{q} \right) = \vec{\Omega}' \times \left( \vec{r}_{i} - \vec{r}_{q} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{q} \right) - \vec{\Omega}' \times \left( \vec{r}_{i} - \vec{r}_{q} \right) = 0
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \left( \vec{\Omega} - \vec{\Omega}' \right) \times \left( \vec{r}_{i} - \vec{r}_{q} \right) = 0
+    \end{equation*}
+    para que esto se cumpla, quiere decir que
+    \begin{equation*}
+        \vec{\Omega} = \vec{\Omega}'
+    \end{equation*}
+
+    \section{Eje instanteo de rotacion}
+    Son los punto $\vec{r}_{j}$ que tienen $\vec{v}_j = 0$ en un dado instante.
+    Si partimos de
+    \begin{equation*}
+        \vec{v}_i = \vec{v}_O + \vec{\Omega} \times \left( \vec{r}_i - \vec{r}_O \right)
+    \end{equation*}
+    y pedimos que $\vec{v}_0 = 0$ ya que el punto $O$ pertenece al eje de rotacion,
+    tenemos que
+    \begin{equation*}
+        \vec{v}_i = \vec{\Omega} \times \left( \vec{r}_i - \vec{r}_O \right) \ .
+    \end{equation*}
+
+    Pero si ahora elegimos un punto $O'$ que tambien pertence al eje de rotacion,
+    tenemos lo siguiente
+    \begin{equation*}
+        \vec{v}_{O'} = 0 = \vec{\Omega} \times \left( \vec{r}_{O'} - \vec{r}_O \right) \ .
+    \end{equation*}
+    esto quiere decir que el omega del rigido es paralelo al eje instantáneo de rotacion.
+
+    \ejem{Varilla en un plano}{Dada una varilla que rueda sin deslizar, decir si
+    existe un EIR.}
+
+}
+
+\npage{
+    % No hay imagenes en esta pagina
+}
+{
+    Escribamos la condicion de rigidez
+    \begin{equation*}
+    \vec{v}_{i} = \vec{v}_{CM} + \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{CM} \right) \ .
+    \end{equation*}
+
+    Ahora, en que gire haciendo rodadura quiere decir que la velicdad relativa
+    entre la velocidad del piso y de la varilla es cero, por lo que ese punto tiene
+    como velocidad cero, ya esto nos dice que existe un EIR.
+
+    Ahora que sabemos que existe, me gustaria demostrar que existe una relacion
+    entre la velocidad centro de masa y el omega del rigido
+
+    \begin{equation*}
+        \vec{v}_{i} = 0 = v_{CM} \cdot \hat{x} + \left( - \Omega \cdot \hat{z} \right) \times \left( 0 - r \cdot \hat{y} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        0 = v_{CM} \cdot \hat{x} + \Omega \cdot r \cdot \hat{z} \times \hat{y}
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        0 = v_{CM} \cdot \hat{x} + \Omega \cdot r \cdot \left( - \hat{x} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        v_{CM} \cdot \hat{x} = \Omega \cdot r \cdot \hat{x}
+    \end{equation*}
+
+    Ahora que tenemos esta relacion, puedo demostrar una cosa interesante que
+    aparece en las velocidades para estos casos 
+
+    \begin{equation*}
+        \vec{v}_{i} = \vec{v}_{O} + \vec{\Omega} \times \left( \vec{r}_{i} - \vec{r}_{O} \right)
+    \end{equation*}
+    si $O$ pertenece al EIR y tenemos nuestro origen en $0$
+    \begin{equation*}
+        \vec{v}_{i} = \vec{\Omega} \times \left( \vec{r}_{i} - 0 \right)
+    \end{equation*}
+    ademas, tenemos una relacion que une el omega
+    \begin{equation*}
+        \vec{v}_{i} = \frac{v_{cm}}{r} \times \vec{r}_{i}
+    \end{equation*}
+    con esta relacion podemos sacar un campo de velocidades y vemos que a medida
+    que subimos, la velocidad es mayor.
+
+    Agregar imagen de campos de velocidad
+
+}
+
+\npage{
+    % No hay imagenes en esta pagina
+}
+{
+    \section{Dinamica del cuerpo rigido}
+
+    Para esta parte un sigue valiendo todo lo que se aprendio de dinamica de la
+    primera parte e incluso siguen valiendo los teoremas de conservacion.
+
+    Lo unico que cambia ahora es el hecho de obtener el centro de masa de un
+    cuerpo rigido. Por definición, el centro de masa se calcula como
+    \begin{equation*}
+        \vec{r}_{CM} = \frac{\sum_i m_i \cdot \vec{r}_i}{\sum_i m_i}
+    \end{equation*}
+    pero ademas se puede ver como una integral que esta definida donde siempre
+    hay masa, digo esto porque voy a escribir una integral que a priori pareciera 
+    que no esta definida pero si lo esta solo que no escribo los limites
+    \begin{equation*}
+        \vec{r}_{CM} = \int \frac{ \partial m \cdot \vec{r}}{M}
+    \end{equation*}
+    M es la suma de todas las masas. Ademas, el $\partial m$ lo podemos ver como
+    \begin{equation*}
+        \partial m = \delta \cdot \partial V
+    \end{equation*}
+    donde $\delta$ es la densidad de masa y $\partial V$ es el diferencial volumen,
+    osea en todas las direcciones donde el cuerpo rigido tenga volumen
+    \begin{equation*}
+        \vec{r}_{CM} = \int \frac{ \delta \left( \vec{r} \right) \cdot \partial V \cdot \vec{r}}{M}
+    \end{equation*}
+
+    \ejem{Cilindro Uniforme}{Dado un cilindro de radio $R$ y de altura $h$. Buscar
+    el centro de masa.}
+
+    Despues lo hago
+
+
+}
+
+\npage{
+    % No hay imagenes en esta pagina
+}
+{
+    \section{Impulso total de un cuerpo rigido}
+
+    Ahora uno se podria preguntar si cambia calcular el impulso total desde otro
+    punto en un cuerpo rigido.
+
+    \begin{equation*}
+        M \cdot \vec{v}_{CM} = \vec{P} = \sum_i m_i \cdot \vec{v}_i
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{P} = \sum_i m_i \cdot \left( \vec{v}_O + \vec{\Omega} \times \left( \vec{r}_i - \vec{r}_O \right) \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{P} = M \cdot \vec{v}_O + \vec{\Omega} \times \left( M \cdot \vec{r}_{CM} - M \cdot \vec{r}_O \right)
+    \end{equation*}
+
+    Ahora nos podrimos preguntar que pasa con la rotacion. Si vemos el impulso
+    angular medido desde el centro de masa tenemos
+
+    \begin{equation*}
+        \vec{L}_{CM} = \sum_i m_i \cdot \vec{r}_i \times \vec{v}_i = \int \partial m \cdot \vec{r} \times \vec{v} \left( \vec{r} \right)
+    \end{equation*}
+    donde $\vec{r}$ debe de estar medida desde el centro de masa. Ademas, por
+    condicion de rigidez tenemos que
+    \begin{equation*}
+        \vec{v} \left( \ \vec{r} \ \right) = \vec{v}_{CM} + \vec{\Omega} \times \vec{r}
+    \end{equation*}
+    ahora podemos reemplazar en la ecuacion del impulso angular
+    \begin{equation*}
+        \vec{L}_{CM} = \int \partial m \cdot \vec{r} \times \left( \vec{v}_{CM} + \vec{\Omega} \times \vec{r} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{L}_{CM} = \int \partial m \cdot \vec{r} \times \vec{v}_{CM} + \int \partial m \cdot \vec{r} \times \left( \vec{\Omega} \times \vec{r} \right)
+    \end{equation*}
+    a esto lo vamos a resolver de forma separada para que se entienda. Empezando por
+    \begin{equation*}
+        \int \partial m \cdot \vec{r} \times \vec{v}_{CM} = M \cdot \vec{r}_{CM} \times \vec{v}_{CM} = 0
+    \end{equation*}
+    esto es igual a cero porque estamos midiendo la distancia que hay del centro
+    de masa respecto del centro de masa.
+}
+\npage{
+    % No hay imagenes en esta pagina
+}
+{
+
+    Despues tenemos
+    \begin{equation*}
+        \int \partial m \cdot \vec{r} \times \left( \vec{\Omega} \times \vec{r} \right)
+    \end{equation*}
+    el gran problema con este es el doble producto cruz. Para eso podemos pensarlo
+    de la siguiente manera siguiendo la regla BACA-CABALLO que dice
+    \begin{equation*}
+        \vec{A} \times \left( \vec{B} \times \vec{C} \right ) = \vec{B} \cdot \left( \vec{A} \cdot \vec{C} \right) - \vec{C} \cdot \left( \vec{A} \cdot \vec{B} \right) 
+    \end{equation*}
+    entonces hagamos el doble producto cruz aparte y ademas tenemos en cuenta que
+    el producto cruz de adentro, solo importa la parte que es ortgonal de $\vec{r}$
+    \begin{equation*}
+        \vec{r} \times \left( \vec{\Omega} \times \vec{r} \right) = \vec{\Omega} \cdot \left( \vec{r} \cdot \vec{r}_{\bot} \right) - \vec{r}_{\bot} \cdot \left( \vec{r} \cdot \vec{\Omega} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{r} \times \left( \vec{\Omega} \times \vec{r} \right) = \vec{\Omega} \cdot r_{\bot}^2 - \vec{r}_{\bot} \cdot r_{\diagup \diagup} \cdot \Omega
+    \end{equation*}
+    entonces reemplzamos los que sabemos
+    \begin{equation*}
+        \vec{L}_{CM} = 0 + \int \partial m \left( \vec{\Omega} \cdot r_{\bot}^2 - \vec{r}_{\bot} \cdot r_{\diagup \diagup} \cdot \vec{\Omega} \right)
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{L}_{CM} = \int \vec{\Omega} \cdot r_{\bot}^2 \cdot \partial m  - \int \vec{r}_{\bot} \cdot r_{\diagup \diagup} \cdot \Omega \cdot \partial m
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        \vec{L}_{CM} = \vec{\Omega} \int \cdot r_{\bot}^2 \cdot \partial m  - \int \vec{r}_{\bot} \cdot r_{\diagup \diagup} \cdot \Omega \cdot \partial m
+    \end{equation*}
+    en particular a 
+    \begin{equation*}
+        I_{CM} = \int r_{\bot}^2 \cdot \partial m
+    \end{equation*}
+    se lo conoce como \textit{Momento de inercia} medido desde el centro de masa
+    \begin{equation*}
+        \vec{L}_{CM} = \vec{\Omega} \cdot I_{CM} - \vec{L}_{\bot, CM} \ ,
+    \end{equation*}
+
+    Ahora nos quedaria preguntar cuando el $\vec{L}_{\bot, CM} = 0$.
+
+    Si $\vec{\Omega}$ es paralelo al eje de simetria se cumple que
+
+}
+
+\npage{
+    % No hay imagenes en esta pagina
+}
+{
+
+    \begin{equation*}
+        \partial \vec{L}_{\bot, 1} + \partial \vec{L}_{\bot, 2} = 0
+    \end{equation*}
+    donde
+    \begin{equation*}
+        \partial \vec{L}_{\bot, 1} = \partial m \cdot \vec{r}_{\bot , 1} \cdot r_{\diagup \diagup , 1}
+    \end{equation*}
+    \begin{equation*}
+        \partial \vec{L}_{\bot, 2} = \partial m \cdot \vec{r}_{\bot , 2} \cdot r_{\diagup \diagup , 2}
+    \end{equation*}
+
+    para este caso se cumple que
+    \begin{equation*}
+        r_{\diagup \diagup , 1} = r_{\diagup \diagup , 2}
+    \end{equation*}
+    y que
+    \begin{equation*}
+        | \vec{r}_{\bot , 1} | = | \vec{r}_{\bot , 2} |
+    \end{equation*}
+    pero son de sentidos contrarios
+    \begin{equation*}
+        \vec{r}_{\bot , 1} =  - \vec{r}_{\bot , 2}
+    \end{equation*}
+    por eso se anulan.
+
+    El otro caso es cuando existe un plano de simetria, en este caso pasa al revez,
+    la parte ortogonal es igual pero la parte paralela es contraria.
+
+    \section{Teorema de Steiner}
+
+    Ahora me gustaria demostrar la relacion que existe entre el $I_z$ con un $I_{z'}$.
+    Si partimos de la expresión que encontramos en la anterior seccion
+    \begin{equation*}
+        I_{z'} = \int r_{\bot}^2 \cdot \partial m
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        I_{z'} = \int \left[ x'^2 + y'^2 \right] \partial m
+    \end{equation*}
+    Ademas podemos decir que solo se mueve en el eje $y$ por lo que su valor en 
+    $x$ se mantedra pero su valor en $y$ tendra una diferencia
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        I_{z'} = \int \left[ x^2 + (y - \alpha )^2 \right] \partial m
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        I_{z'} = \int \left[ x^2 + y^2 - 2 \cdot y \cdot \alpha + \alpha ^2 \right] \partial m
+    \end{equation*}
+    \begin{equation*}
+        \Downarrow
+    \end{equation*}
+    \begin{equation*}
+        I_{z'} = \int \left( x^2 + y^2 \right) \partial m + \int \left( - 2 \cdot y \cdot \alpha \right) \partial m + \int \left( \alpha ^2 \right) \partial m
+    \end{equation*}
+
+}
+\npage{
+    % No hay imagenes en esta pagina
+}
+{
+    \begin{equation*}
+        I_{z'} = I_{z} + -2 \cdot \alpha \int \left( y \right) \partial m + M \cdot \alpha^2
+    \end{equation*}
+    donde
+    \begin{equation*}
+        -2 \cdot \alpha \int \left( y \right) \partial m = M \cdot y_{cm} = 0
+    \end{equation*}
+    ya que mis sistema de referncia esta parado en el centro de masa. Entonces
+    nos que da que
+    \begin{equation*}
+        I_{z'} = I_{z} + M \cdot \alpha^2
+    \end{equation*}
+    donde $\alpha$ es la distancia entre los ejes.
+}
+\end{document}
